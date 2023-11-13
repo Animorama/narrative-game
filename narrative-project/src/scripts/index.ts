@@ -1,4 +1,4 @@
-import demo from './demo.narrat';
-import quest from './quest.narrat';
+import demo from "./main.narrat";
+import quest from "./quest.narrat";
 
 export default [demo, quest];

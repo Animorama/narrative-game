@@ -15,6 +15,7 @@ main:
 fellInMetal:
   "You fall onto the cold, wet board, your bag escapes you and you lose sight of it as your back impacts the juncture between two boards."
   "You lay there for a few seconds, silent, as rain pours on you..."
+  set data.isSore true
   choice:
     talk operator idle "Hey! Are you OK?"
     "Yes...":
@@ -39,6 +40,10 @@ askForHelp:
 getToApartment:
   set_screen narrat 0 slide-top 2000
   "You arrive to your apartment building, get the key from your back and open the door to the lobby."
+  if $data.isSore:
+    "You slowly get up the stairs, still sore from the fall, dripping wet..."
+  else:
+    "You get up the stairs, eager to change your clothes."
 
 askAboutChoices:
   choice:
