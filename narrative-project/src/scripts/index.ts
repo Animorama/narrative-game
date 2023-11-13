@@ -1,4 +1,5 @@
-import demo from "./main.narrat";
+import main from "./main.narrat";
+import apartment from "./apartment.narrat";
 import quest from "./quest.narrat";
 
-export default [demo, quest];
+export default [main, apartment, quest];

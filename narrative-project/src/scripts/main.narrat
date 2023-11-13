@@ -44,6 +44,9 @@ getToApartment:
     "You slowly get up the stairs, still sore from the fall, dripping wet..."
   else:
     "You get up the stairs, eager to change your clothes."
+  jump enterApartment
+
+//DEMOSTUFF
 
 askAboutChoices:
   choice:

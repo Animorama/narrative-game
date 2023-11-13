@@ -9,4 +9,13 @@
   --secondary: #42b983;
 }
 
+.key-choice {
+  --text-color: green !important;
+  --bg-color: yellow !important;
+}
+
+#key-choice {
+  --text-color: green !important;
+  --bg-color: yellow !important;
+}
 /* Add any other CSS you want here */
