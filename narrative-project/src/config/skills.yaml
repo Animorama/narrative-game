@@ -1,0 +1,40 @@
+skills:
+  nerve:
+    name: Nerve
+    description: How good you are at moving around and at physical interaction.
+    startingLevel: 0
+    icon: img/skills/agility.webp
+    hidden: true
+  logic:
+    name: Logic
+    description: How good you are at solving problems, remembering information.
+    icon: img/skills/logic.webp
+    hidden: true
+    startingLevel: 0
+  intuition:
+    name: Intuition
+    description: How good you are at interpersonal interactions, and attunement to your surroundings.
+    icon: img/skills/logic.webp
+    startingLevel: 1
+skillOptions:
+  xpPerLevel: 10
+  notifyLevelUp: false
+skillChecks:
+  rollRange: 100
+  skillMultiplier: 10
+  failureChance: 1
+  difficultyText:
+    - - 0
+      - Very Easy
+    - - 10
+      - Easy
+    - - 30
+      - Medium
+    - - 50
+      - Hard
+    - - 70
+      - Very Hard
+    - - 80
+      - Extremely Hard
+    - - 90
+      - Near Impossible
