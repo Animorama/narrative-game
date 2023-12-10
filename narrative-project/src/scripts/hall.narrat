@@ -1,0 +1,60 @@
+enterHall:
+  set_screen hall 0 slide-top 2000
+  "You get out of your apartment and meet your neighbor Chris at the hall. He looks concerned, and you approach him with your usual empathy."
+  talk jessica happy "Good morning, Chris! How are you doing today?"
+  talk chris idle "<i>*Chris sighs deeply*</i> Hi, Jessica. Work has been really stressful lately. I'm working overtime non-stop."
+  "His comment makes you reflect on Maxwell and how he buried himself in work too. You wonder whether that intensity contributed to his tragic decision."
+  choice:
+    "What to say?":
+    "If you need to talk about it, you can always count on me.":
+      talk chris happy "I appreciate your interest. It's always nice to have a psychologist as a neighbor, but the truth is that I still can't pay for your sessions. Not even the ones I already owe you..."
+      jump debt
+    "Can I help you in any way?":
+      talk chris happy "I appreciate your interest. It's always nice to have a psychologist as a neighbor, but the truth is that I still can't pay for your sessions. Not even the ones I already owe you..."
+      jump debt
+
+debt:
+  choice:
+    "Forgive the debt?":
+    "(YES)👍 <span style='color: rgb(102, 234, 95)'> + X JOVIALTY</span>"://-------------CAMBIAR X por VALOR JOVIALTY
+      talk jessica happy "Chris, the most important thing now is your health. Don't worry about the money."
+      "For you, this act of empathy and understanding is a source of professional fulfilment and positive feelings."
+      //----------------- ADD JOVIALTY(+X)
+      jump bye_chris
+    "(NO)👎 <span style='color: rgb(215, 121, 9)'> + X $</span>"://-------------CAMBIAR X por VALOR MONEY
+      talk jessica idle "Well, I understand you and I appreciate your honesty. But I'm not going through a good time either and I'm very sorry, but I'll have to ask you to pay off your debt."
+      "After you insisting on paying, you can see the disappointment on Chris' face, but he accepts your request with some frustration."
+      talk chris idle "<i>*Tone of resignation*</i> Of course, its only fair..."
+      //----------------- ADD MONEY(+X)
+      jump thanks_chris
+
+thanks_chris:
+  choice:
+    "What to say?":
+    "Thank you for understanding":
+      jump bye_chris
+    "I'm sorry I had to ask you for it...":
+      jump bye_chris
+    "Yeah, it's only fair...":
+      jump bye_chris
+
+bye_chris:
+  "Just before leaving, Chris, unaware of what had happened, says one last thing."
+  talk chris idle "Oh, and say hi to Maxwell for me, okay?"
+  "This unexpected mention of Maxwell feels like a punch in the gut and leaves you speechless for a moment."
+  jump say_max_toChris
+
+say_max_toChris:
+  choice:
+    "What to say?":
+    "Of course, no problem...":
+      talk jessica sad "Maxwell has been very busy lately."
+      jump endHall
+    "You see... The truth is...":
+      talk chris idle "<i>*Worried*</i> Has something happened?"
+      talk jessica sad "No. Never mind..."
+      jump endHall
+
+endHall:
+  "With a quick goodbye, you walk away, feeling a hurricane of emotions. The mention of Maxwell brings up the pain of his loss once again."
+  jump enterStreet

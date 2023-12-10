@@ -3,7 +3,6 @@ import "./css/main.css";
 import { NarratPlugin, registerPlugin, startApp } from "narrat";
 import scripts from "./scripts";
 import config from "./config";
-
 // Enable this when releasing for steam
 const useSteam = false;
 

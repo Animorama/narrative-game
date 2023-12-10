@@ -1,10 +1,46 @@
 screens:
   default:
-    background: img/backgrounds/curtain.webp
-  narrat:
-    background: img/backgrounds/narrat.webp
-  map:
-    background: img/backgrounds/map.webp
+    background: img/backgrounds/black.png
+  bath:
+    background: img/backgrounds/bath.png
+  room:
+    background: img/backgrounds/room.png
+  table:
+    background: img/backgrounds/table.png
+  footwear:
+    background: img/backgrounds/dress.png
+  hall:
+    background: img/backgrounds/door.png
+  back:
+    background: img/backgrounds/back.png
+  cabin:
+    background: img/backgrounds/cabin.png
+  dungeon:
+    background: img/backgrounds/dungeon.png
+  entrance_ncp:
+    background: img/backgrounds/entrance_ncp.png
+  entrance_tecnoplex:
+    background: img/backgrounds/door.png
+  hideaway:
+    background: img/backgrounds/door.png
+  metro:
+    background: img/backgrounds/metro.png
+  ncp:
+    background: img/backgrounds/ncp.png
+  office:
+    background: img/backgrounds/office.png
+  shop:
+    background: img/backgrounds/shop.png
+  street1:
+    background: img/backgrounds/street1.png
+  street2:
+    background: img/backgrounds/street2.png
+  taxi:
+    background: img/backgrounds/taxi.png
+  tecnoplex:
+    background: img/backgrounds/tecnoplex.png
+  shoptest:
+    background: img/backgrounds/shop.png
     buttons:
       - id: shopButton
         enabled: false

@@ -1,21 +1,19 @@
 skills:
-  nerve:
-    name: Nerve
-    description: How good you are at moving around and at physical interaction.
+  stealth:
+    name: Stealth
+    description: "The ability to move silently and unnoticed, making you a master of covert operations."
+    startingLevel: 3
+    icon: img/skills/stealth.png
+  speed:
+    name: Speed
+    description: Allows you to move swiftly and efficiently, making you a formidable force in any race or pursuit.
+    icon: img/skills/speed.png
+    startingLevel: 2
+  jovialty:
+    name: Jovialty
+    description: The art of engaging with people positively and spreading good vibes, creating an atmosphere of joy and positivity wherever you go.
+    icon: img/skills/jovialty.png
     startingLevel: 0
-    icon: img/skills/agility.webp
-    hidden: true
-  logic:
-    name: Logic
-    description: How good you are at solving problems, remembering information.
-    icon: img/skills/logic.webp
-    hidden: true
-    startingLevel: 0
-  intuition:
-    name: Intuition
-    description: How good you are at interpersonal interactions, and attunement to your surroundings.
-    icon: img/skills/logic.webp
-    startingLevel: 1
 skillOptions:
   xpPerLevel: 10
   notifyLevelUp: false

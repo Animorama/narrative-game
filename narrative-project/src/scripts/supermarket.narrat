@@ -1,0 +1,245 @@
+startSupermarket:
+  set_screen shop 0 slide-top 2000
+  "You enter the supermarket and approach the counter. Karen, the sales assistant, is behind the counter, busy organizing some products on the shelves."
+  "As you approach, Karen looks up and gives you a gaze full of indifference."
+  talk jessica idle "Good afternoon!"
+  talk karen angry "<i>*sighs*</i> Maybe it's good for you"
+  talk jessica idle "Could you help me?"
+  talk karen angry "Oh god... Do you have everything you need?"
+  talk jessica idle "Actually, no. I was going to ask you about something."
+  jump optionsMarket
+
+optionsMarket:
+  choice:
+    "What to do?":
+    "ASK":
+      jump askMenu
+    "BUY":
+      jump shopMenu
+
+shopMenu:
+  choice:
+    "What to buy?":
+    "COFFEE ☕ <br><span style='color: rgb(234, 95, 95)'> + X SPEED</span><br><span style='color: rgb(215, 121, 9)'> - X $</span>"://-------------CAMBIAR X por VALOR SPEED Y MONEY
+    //----------------- ADD SPEED
+      jump optionsMarket
+    "SUNGLASSES 🕶️ <br><span style='color: rgb(45, 136, 224)'> + X STEALTH</span><br><span style='color: rgb(215, 121, 9)'> - X $</span>"://-------------CAMBIAR X por VALOR STEALTH Y MONEY
+    //----------------- ADD STEALTH
+      jump optionsMarket
+    "ENERGY DRINK 🥤<br><span style='color: rgb(234, 95, 95)'> + X SPEED</span><br><span style='color: rgb(215, 121, 9)'> - X $</span>"://-------------CAMBIAR X por VALOR SPEED Y MONEY
+    //----------------- ADD SPEED
+      jump optionsMarket
+    "VANILLA PERFUME 🧴<br><span style='color: rgb(102, 234, 95)'> + X JOVIALTY</span><br><span style='color: rgb(215, 121, 9)'> - X $</span>"://-------------CAMBIAR X por VALOR JOVIALTY Y MONEY
+    //----------------- ADD JOVIALTY
+      jump optionsMarket
+
+
+askMenu:
+  choice:
+    "What to ask?":
+    "Have you seen anybody suspicious here?":
+      talk karen angry "In this city everybody is suspicious."
+      talk karen angry "Don't ask me weird questions, better buy something."
+      jump optionsMarket
+    "How many people work here?":
+      talk karen angry "This information is none of your concern."
+      jump askWorkers
+    "Have you seen a man with red sunglasses?":
+      talk karen angry "There can be hundreds of them."
+      talk jessica idle "Alright, long story short. I need to find someone. A guy with sunglasses. And if he is who I think he is, he is wearing the same sunglasses you have right here."
+      talk karen angry "These? The CirmsonShade? I'm surprised somebody even likes them."
+      talk jessica idle "Nobody has bought them?"
+      talk karen angry "Not on my shift. But the stock is not full, so I guess yeah."
+      talk karen angry "Do you want to buy something or do we keep playing guessing games?"
+      jump optionsMarket
+
+askWorkers:
+  choice:
+    "What to say?":
+    "Please, I need to know it.":
+      talk karen angry "And why's that, hmm?"
+      jump askWorkers2_long
+    "There are only three sales assistants, right?":
+      talk karen angry "Yes, there are three of us."
+      talk jessica idle "And there's no one else?"
+      talk karen angry "No, and I'm not giving you any more information."
+      jump askWorkers2
+
+askWorkers2_long:
+  choice:
+    "What to say?":
+    "I feel like you're hiding something.":
+      talk karen angry "Elementary, my dear Watson. Now buy something or leave."
+      jump optionsMarket
+    "I... I want to work here.":
+      jump workHere
+    "Just curious.":
+      talk karen angry "I'm not giving you any information."
+      jump askWorkers2
+
+workHere:
+  talk karen scream "Are you sure? Do you want to spend your days arranging shelves for 5 credits an hour? I don't think so!"
+  jump calm_karen
+
+askWorkers2:
+  talk karen angry "Unless... you're looking for a job. But you with your suit don't look like somebody who needs a job here."
+  choice:
+    "What to say?":
+    "I want to work here.":
+      jump workHere
+    "Why are you so hostile? Can I help you?":
+      talk karen angry "<i>*smirks*</i> Now you're trying to be compassionate? How pathetic..."
+      talk karen scream "<i>*ironically*</i> Yes! I'm bitter! What a surprise, huh? How could I not be? Charging only 5 credits per hour and no breaks!"
+      jump calm_karen
+
+calm_karen:
+  talk karen scream "If you don't need anything, just leave."
+  choice:
+    "What do you do?":
+    "(Bribe her)":
+      talk jessica idle "Maybe we could come to an agreement..."
+      "With a light blush on your cheeks, thinking of the unusual decision you're about to make, you discreetly take out a certain amount of money and show it to the assistant."
+      jump bribe_karen
+    "(Calm her) <span style='color: rgb(102, 234, 95)'> JOVIALTY > X </span>"://-------------CAMBIAR X por VALOR JOVIALTY
+      jump skill_jovialty_toCalmKaren
+
+bribe_karen:
+  choice:
+    "Bribe offer":
+    "<span style='color: rgb(102, 234, 95)'>3 $</span>":
+      jump denyBribe_karen
+      //----------------- REMOVE MONEY(-3)
+    "<span style='color: rgb(102, 234, 95)'>5 $</span>":
+      jump denyBribe_karen
+      //----------------- REMOVE MONEY(-5)
+    "<span style='color: rgb(102, 234, 95)'>8 $</span>":
+      jump denyBribe_karen
+      //----------------- REMOVE MONEY(-8)
+    "<span style='color: rgb(102, 234, 95)'>10 $</span>":
+      jump acceptBribe_karen
+      //----------------- REMOVE MONEY(-10)
+    "<span style='color: rgb(102, 234, 95)'>15 $</span>":
+      jump acceptBribe_karen
+      //----------------- REMOVE MONEY(-15)
+
+denyBribe_karen:
+  "You attempt of bribing her doesn't turn out as expected. The sales assistant looks at the money and then back at you. You see the indignation and offense on her face."
+  talk karen scream "You think you can buy me?! I'm a professional!"
+  "However, she suddenly takes the money anyway, angrily putting it away in her pocket."
+  talk karen scream "I'm keeping this as a compensation for the insult. But don't expect any help from me."
+  jump skill_jovialty_toCalmKaren
+
+acceptBribe_karen:
+  "After a short pause and an appraising look, the sales assistant accepts the money. She looks surprised, but content. Then she starts talking, giving you the information you were asking for."
+  jump karen_revelation
+
+skill_jovialty_toCalmKaren:
+  "TIRADA FAKE"//Consigues calmar a karen? Cambiar TestPoints por TIRADA JOVIALTY
+  if (== $stats.testPoints.value 0)://--------SI
+    jump karen_calms_down
+  else://-------------------------------------NO
+    jump karen_gets_mad
+
+karen_calms_down:
+  "You notice her badge. You take a deep breath and start speaking to her with a soft and calming tone."
+  talk jessica happy "Karen, right? I think we started in a wrong way. I'm sorry you're feeling this way. I understand you, I'm also going through a bad time."
+  talk karen scary "<i>*ironically*</i> What, you broke a nail, huh?"
+  talk jessica sad "My partner committed suicide."
+  "There is a moment of silence. Karen swallows and opens her mouth, trying to come up with the right words."
+  talk karen sad "Oh, I'm sorry..."
+  talk jessica happy "I'm doing my best... What I wanted to tell you is that you shouldn't let your bad thoughts take control over you. As Maxwell used to say, The brightest stars emerge in the deepest darkness."
+  talk karen sad "I'm sorry for being so rude with you..."
+  talk jessica happy "Don't worry, it's okay."
+  talk karen sad "I.. Let me do something for you... Take anything from the shop for free, it's on me."
+  jump shopMenu_free
+
+karen_gets_mad:
+  talk jessica happy "I know it can be a bad day, but I really  need your help. Could you provide me some information?"
+  "Karen, with a frown, looks at you up and down."
+  talk karen scary "<i>*sarcastically*</i> Now what? Now you playing my therapist? I don't need your fake compassion."
+  talk jessica sad "I don't want to bother you, I'm just trying to figure something out. It can be very important."
+  "Karen, clearly irritated, snorts with disdain."
+  talk karen scream "<i>*raises her voice*</i> Enough! Don't you see that I'm busy? People like you only think about themselves."
+  talk jessica sad "I understand that you're mad, but I really need to know what..."
+  "Karen abruptly interrupts you, showing how annoyed she is."
+  talk karen scream "<i>*tired and annoyed*</i> If I give you the information will you leave me alone?"
+  talk jessica idle "Yes, I promise."
+  "After doubting for a bit, Karen sighs and finally starts speaking..."
+  jump karen_revelation
+
+shopMenu_free:
+  choice:
+    "What to get?":
+    "COFFEE ☕ <br><span style='color: rgb(234, 95, 95)'> + X SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 0 $</span>"://-------------CAMBIAR X por VALOR SPEED Y MONEY
+    //----------------- ADD SPEED
+      jump karen_calms_down2
+    "SUNGLASSES 🕶️ <br><span style='color: rgb(45, 136, 224)'> + X STEALTH</span><br><span style='color: rgb(215, 121, 9)'> - 0 $</span>"://-------------CAMBIAR X por VALOR STEALTH Y MONEY
+    //----------------- ADD STEALTH
+      jump karen_calms_down2
+    "ENERGY DRINK 🥤<br><span style='color: rgb(234, 95, 95)'> + X SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 0 $</span>"://-------------CAMBIAR X por VALOR SPEED Y MONEY
+    //----------------- ADD SPEED
+      jump karen_calms_down2
+    "VANILLA PERFUME 🧴<br><span style='color: rgb(102, 234, 95)'> + X JOVIALTY</span><br><span style='color: rgb(215, 121, 9)'> - 0 $</span>"://-------------CAMBIAR X por VALOR JOVIALTY Y MONEY
+    //----------------- ADD JOVIALTY
+      jump karen_calms_down2
+
+karen_calms_down2:
+  talk jessica happy "Thank you very much, Karen."
+  talk karen sad "You're welcome... Can I do anything to help you with your partner's trauma?"
+  talk jessica happy "I feel like there's a tiny bit of hope that he might be alive. But I need you to tell me everything I know about the man with the red glasses."
+  "Shocked by your words, Karen sits down and starts explaining you something important:"
+  jump karen_revelation
+
+karen_revelation:
+  talk karen angry "There is a person that fits your description. He doesn't work here, but I see him often. I don't know who he is, all I know is that he works for the boss."
+  talk karen angry "Every week he comes to get some supplies. He always tries not to attract much attention. That's why for a good commission we agreed to attend him in the back room."
+  choice:
+    "What to ask?":
+    "What kind of supplies?":
+      talk karen angry "My boss prepares the boxes, I have no idea what's inside. I guess, it could be food."
+      jump karen_revelation_noSupplies
+    "Where does he go after?":
+      talk karen angry "He always goes to the metro station at the main square."
+      talk jessica idle "But isn't the station closed?"
+      talk karen angry "Yeah, it's weird. But that's all I know."
+      "You are very intrigued, but after everything that's happened to you this morning you still stay cautious. You decide to check out the closed station. This place, surrounded with mystery, seems a perfect setting to discover secrets of the past, and maybe, the future."
+      jump startStation
+    "What does he look like?":
+      talk karen angry "Hard to say. He has a beard, it covers half of his face. And he always wears a hood and these red glasses."
+      jump karen_revelation_noLook
+
+karen_revelation_noSupplies:
+  choice:
+    "What to ask?":
+    "Where does he go after?":
+      talk karen angry "He always goes to the metro station at the main square."
+      talk jessica idle "But isn't the station closed?"
+      talk karen angry "Yeah, it's weird. But that's all I know."
+      "You are very intrigued, but after everything that's happened to you this morning you still stay cautious. You decide to check out the closed station. This place, surrounded with mystery, seems a perfect setting to discover secrets of the past, and maybe, the future."
+      jump startStation
+    "What does he look like?":
+      talk karen angry "Hard to say. He has a beard, it covers half of his face. And he always wears a hood and these red glasses."
+      jump karen_revelation_noLook_noSupplies
+
+karen_revelation_noLook:
+  choice:
+    "What to ask?":
+    "What kind of supplies?":
+      talk karen angry "My boss prepares the boxes, I have no idea what's inside. I guess, it could be food."
+      jump karen_revelation_noLook_noSupplies
+    "Where does he go after?":
+      talk karen angry "He always goes to the metro station at the main square."
+      talk jessica idle "But isn't the station closed?"
+      talk karen angry "Yeah, it's weird. But that's all I know."
+      "You are very intrigued, but after everything that's happened to you this morning you still stay cautious. You decide to check out the closed station. This place, surrounded with mystery, seems a perfect setting to discover secrets of the past, and maybe, the future."
+      jump startStation
+
+karen_revelation_noLook_noSupplies:
+  choice:
+    "What to ask?":
+    "Where does he go after?":
+      talk karen angry "He always goes to the metro station at the main square."
+      talk jessica idle "But isn't the station closed?"
+      talk karen angry "Yeah, it's weird. But that's all I know."
+      "You are very intrigued, but after everything that's happened to you this morning you still stay cautious. You decide to check out the closed station. This place, surrounded with mystery, seems a perfect setting to discover secrets of the past, and maybe, the future."
+      jump startStation

@@ -1,0 +1,35 @@
+startStation:
+  set_screen metro 0 slide-top 2000
+  "You enter the subway, the darkness receives you with its silent embrace. The station looks abandoned, there are ruins all around, it's been under construction for years now. You need to get inside and there's only one option: walk along the train tracks..."
+  "As you're walking, your mind comes back to the memories about Maxwell. You grab the pendant he gifted you, you always wear it. It's the reminder of the phrase he always used to say. The brightest stars emerge in the deepest darkness."
+  "After walking for a while, you find yourself at a fork: there are two tunnels in front of you."
+  "The one on the left is slightly lit up, it looks renovated and somewhat modern. The one on the right is an old abyss of darkness and chaos, it attracts you with its mysterious gloom."
+  choice:
+    "Which tunnel do you choose?":
+    "LEFT":
+      "You decide to go into the left tunnel. It looks safer in a way and more habitable."
+      "Suddenly, the light at the end of the tunnel that seemed static, starts moving towards you very fast. Your heart starts racing as you realize it's a train that's coming right at you."
+      "You start running as fast as you can, driven by the survival instinct."
+      jump skill_speed_toRunMetro
+    "RIGHT":
+      "The brightest stars emerge in the deepest darkness. The image of Maxwell saying this doesn't leave your mind."
+      "Inspired by this memory, you decide to dive deeper into the darkness of the tunnel, hoping to find some answers."
+      jump endStation
+
+skill_speed_toRunMetro:
+  "TIRADA FAKE"//Consigues evitar el metro? Cambiar TestPoints por TIRADA SPEED
+  if (== $stats.testPoints.value 0)://--------SI
+    jump escape_metro
+  else://-------------------------------------NO
+    jump no_escape_metro
+
+escape_metro:
+  "Making an incredible effort, you manage to get back to the fork and jump away to another tunnel, right on time for the train to pass by."
+  "After catching your breath, you decide to explore the other tunnel."
+  jump endStation
+
+endStation:
+  "After a long walk, you get to some kind of room, illuminated by the flickering lights of multiple monitors. In the center you see a chair with a lonely figure in it, the person is sitting facing away from you."
+  "Suddenly the chair start slowly turning towards you...."
+  talk maxwell glasses "Hi, my little star..."
+  jump startHideaway

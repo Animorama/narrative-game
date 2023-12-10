@@ -1,0 +1,126 @@
+startHideaway:
+  set_screen hideaway 0 slide-top 2000
+  "The world stops the moment you see Maxwell. Tears start filling up your eyes and pouring out in an uncontrollable burst."
+  talk maxwell idle "Jessica… Please, listen to me…"
+  "You are so overwhelmed that the words get stuck in your throat, you can't say anything."
+  talk maxwell idle "I had to stage my suicide. It was necessary…"
+  "Despite the thunderstorm of emotions taking control over you, you try to calm down. You breathe in and start talking to Maxwell."
+  talk jessica sad "Why, Max? Why did you have to stage your death? After what happened to my father... Do you have any idea what it feels like? I've been living in hell for the last months."
+  talk maxwell idle "Jess… it's okay. The pain you've been feeling is not your fault."
+  "His reply makes you even more mad."
+  talk jessica angry "How could it possibly be my fault?!"
+  talk maxwell idle "Listen, it's not my fault either."
+  "This reply and his fake compassion drive you nuts, you're trying very hard not to burst into anger."
+  choice:
+    "Listen to Max?":
+    "(YES)👍":
+      "Somehow you manage to stay calm. You take a deep breath and decides and decide to give him a chance to explain."
+      jump maxwell_reveal
+    "(NO)👎":
+      "A wave of anger towards Max covers you. Unable to stay calm, you try to punch him."
+      "However, with surprising agility. he dodges you and traps you from behind."
+      "Your impatience and the inability to calm down damage your joviality. <br><br><span style='color: rgb(102, 234, 95)'> - X JOVIALTY</span>"//-------------CAMBIAR X por VALOR JOVIALTY
+      //----------------- REMOVE JOVIALTY(- X)
+      "Gently releasing you, Maxwell steps back. In his eyes you can see a mix of preoccupation and understanding."
+      talk maxwell sad "Jess, listen to me, please..."
+      jump maxwell_reveal
+      
+maxwell_reveal:
+  talk maxwell idle "The world is not how you think it is. All the pain we feel has a reason. We are constantly stalked by the Watchers."
+  talk jessica angry "Who are the Watchers?"
+  talk maxwell idle "Well... It's hard to explain. They are always there, watching us and tormenting us. They feed on our pain and suffering, and intensify it."
+  talk jessica angry "I can't believe you're making shit up to use it as an excuse."
+  talk maxwell scream "It's true! The pain works like a source of energy for them, and they are also the reason. We need to get rid of them. That's why I'm here."
+  "You think of all the years your spent studying Psychology and human nature, trying to find a way to help people, to heal them..."
+  talk jessica scream "Get rid of all the pain? But Max, that's what we've been doing, that's what I've been doing! Don't you remember?!"
+  talk maxwell scream "You don't understand! We can't truly help anyone as long as they exist!"
+  talk jessica sad "You're not sane, Max. What happened to you?"
+  talk maxwell scream "Jessica, I'm not crazy!"
+  "In an instant Maxwell quickly moves towards you. For a moment you freeze, thinking he will hit you. But then you feel his arms around you and realize he's not trying to hurt you."
+  talk maxwell sad "I'm sorry, Jess, I'm so so sorry..."
+  "Your arms rise to hug him back... Time freezes while you're hugging each other. But then Maxwell lets you go."
+  talk maxwell sad "I want to make everything clear for you, my little star. Ask me anything."
+  jump menu_ask_maxwell
+
+
+menu_ask_maxwell:
+  choice:
+    "What to ask?":
+    "Why did you leave me like that?":
+      talk maxwell idle "I had to do it, Jess. We're all threatened."
+      jump maxwell_leave
+    "What is NCP?":
+      talk maxwell idle "The initials of National Catastrophe Prevention, one of the organizations that control this world."
+      talk maxwell idle "I was working for them, in the research department."
+      talk jessica sad "Why did you never tell me about it?"
+      talk maxwell sad "Honey, I couldn't. I signed an NDA. The NCP has to stay undercover. The world's fate depends on its existence."
+      jump maxwell_ncp
+    "Where do the Watchers come from?":
+      talk maxwell idle "From a place called Tormento, a world that intersects with ours."
+      talk maxwell idle "The suffering and pain keep that place alive."
+      talk jessica sad "But why are they against us?"
+      talk maxwell idle "They're not against us, they just want to live. But they feed on our suffering, it's their fuel."
+      talk maxwell idle "Many of them managed to get to our world. You might've noticed that many people around are more bitter than normally."
+      talk maxwell idle "The Watchers are already attacking."
+    "Why are they called Watchers?":
+      talk maxwell idle "That's how our ancestors called them. These creatures have always been around, watching us closely, but we could never see them."
+      talk maxwell idle "That's why they're called Watchers."
+      talk jessica sad "Nobody ever saw them?"
+      talk maxwell idle "See the Watchers, that's something very few people could do. And the ones who managed to, paid an unimaginable price."
+      talk maxwell idle "Only those who have experiences the darkest human emotions have been able to see them."
+      talk maxwell angry "They say their gaze is so intense, so disturbing that it gets to the bottom of your soul and tears it apart."
+      talk maxwell sad "The unfortunate ones who have locked eyes with a Watcher, they're never the same again."
+
+maxwell_question1:
+  talk maxwell idle "I had to do it, Jess. We're all threatened."
+  jump maxwell_leave
+
+maxwell_ncp:
+  choice:
+    "What to say":
+    "You know you could trust me...":
+      talk maxwell sad "I wanted to protect you. You were not ready to know the truth about this world."
+      jump maxwell_ncp_2
+    "The world's fate?":
+      jump maxwell_ncp_final
+
+maxwell_ncp_final:
+  talk maxwell idle "We are not alone in the universe. We are constantly at war with other worlds."
+  talk maxwell idle "The NCP is protecting us. They're the organization that faces other worlds."
+
+maxwell_ncp_2:
+  choice:
+    "What to ask?":
+    "You think I'm weak?!":
+      talk maxwell sad "Jess... I just didn't want you to be in danger."
+      jump maxwell_ncp_final
+    "What truth?":
+      jump maxwell_ncp_final
+
+maxwell_leave:
+ choice:
+    "What to ask?":
+    "By who?":
+      talk maxwell angry "By someone very powerful."
+      jump maxwell_leave2
+    "Why me? I didn't do anything.":
+      talk maxwell idle "Because you are the partner of a rebel, my partner. Amanda could do anything."
+      talk jessica sad "Amanda?"
+      jump maxwell_leave2
+
+maxwell_leave2:
+  talk maxwell idle "Amanda, the head of NCP. She is a ruthless commander, a world wrecker. She has destroyed entire civilizations, extracting all their resources and getting rid of them mercilessly. And now, she has set her sight on the Watchers, trying to make use of their power for her own needs."
+  talk jessica sad "What kind of needs?"
+  talk maxwell idle "I'm not sure, but it's something very dark and horrendous. If Amanda gains the power of the Watchers, she'll be able to control humans' pain."
+  talk maxwell idle "With a power like this, who knows what she's capable of doing..."
+  talk jessica sad "Is she threatening you?"
+  talk maxwell idle "Well, I found out about her plans and tried to make her change her mind. I don't trust her. And her people are very powerful."
+  talk maxwell idle "They blackmailed me, saying they will kill all my loved ones if I don't keep my mouth shut."
+  talk maxwell idle "That's why I had to stage my death..."
+
+
+
+
+
+
+

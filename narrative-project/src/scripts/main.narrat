@@ -1,7 +1,132 @@
 main:
-  play music calm
-  "You walk down the street, surrounded by sounds of cars, and the mutted impact of raindrops on her coat not being able to smell anything due to a cold. You are holding a bag over your shoulder, concentrated on avoiding the numerous water puddles on the sidewalk."
-  "You turn right, and find some metal boards that are hiding a huge hole on the sidewalk, next to them, some operators are working the pipes."
+  jump startSupermarket
+  set_screen room 0 slide-top 2000
+  //play music calm
+  "You wake up to the annoying sound of your alarm. You groan and reach for your phone to turn it off."
+  "After doing so, you feel your usual morning tiredness. The room is lightly lit by the faint light of dawn coming through the curtains. You lazily stretch in bed, wondering how you'll face another day full of overwhelming responsibilities and tasks."
+  set_screen bath 0 slide-top 2000
+  "You sigh, finally get up and head to the bathroom. You wash your face, your mind wanders pointlessly around different thoughts."
+  set_screen table 0 slide-top 2000
+  jump table
+
+table:
+  "Your go back to your room and start going through your things, choosing what to put on. You look at your things…"
+  choice:
+    "Which item to take?":
+    "PENDANT ⭐":
+      "As always, you put on your star-shaped pendant. Maxwell gifted it to you on your anniversary. His smile and loving words come to mind, and you feel a surge of overwhelming love and sadness. Why did Maxwell leave you so unexpectedly?"
+      jump pendant_first
+    "NOTEBOOK 📕":
+      "This notebook reminds you of the nights when Maxwell buried himself in studies. He had always been passionate about science, but lately he had been obsessed with some secret project that he never explained to you. What was he doing?.. A weird word, NCP, is constantly repeated in the notebook. Was it the name of his project?"
+      jump notebook_first
+    "PHOTO 🖼️":
+      "On the photo you see yourself and Maxwell on your graduation day, your faces are lit up with happiness. It makes you remember the pride in Maxwell's eyes as he was holding your diploma. But it also makes you wonder what made Maxwell take that decision and end it all, after achieving so much together and having so many plans for the future."
+      "You look at the back of the photo. There is a phrase:<br><br> <span style='color: rgb(253, 216, 53)'><b><i>The brightest stars emerge in the deepest darkness</i></b></span>.<br><br> This is the phrase Maxwell always told you. It is a reminder that you can always find opportunities to grow and shine, even in the most difficult times."
+      jump photo_first
+
+pendant_first:
+  choice:
+    "Which item to take?":
+    "NOTEBOOK 📕":
+      "This notebook reminds you of the nights when Maxwell buried himself in studies. He had always been passionate about science, but lately he had been obsessed with some secret project that he never explained to you. What was he doing?.. A weird word, NCP, is constantly repeated in the notebook. Was it the name of his project?"
+      jump just_photo
+    "PHOTO 🖼️":
+      "On the photo you see yourself and Maxwell on your graduation day, your faces are lit up with happiness. It makes you remember the pride in Maxwell's eyes as he was holding your diploma. But it also makes you wonder what made Maxwell take that decision and end it all, after achieving so much together and having so many plans for the future."
+      "You look at the back of the photo. There is a phrase:<br><br> <span style='color: rgb(253, 216, 53)'><b><i>The brightest stars emerge in the deepest darkness</i></b></span>.<br><br> This is the phrase Maxwell always told you. It is a reminder that you can always find opportunities to grow and shine, even in the most difficult times."
+      jump just_notebook
+
+notebook_first:
+  choice:
+    "Which item to take?":
+    "PENDANT ⭐":
+      "As always, you put on your star-shaped pendant. Maxwell gifted it to you on your anniversary. His smile and loving words come to mind, and you feel a surge of overwhelming love and sadness. Why did Maxwell leave you so unexpectedly?"
+      jump just_photo
+    "PHOTO 🖼️":
+      "On the photo you see yourself and Maxwell on your graduation day, your faces are lit up with happiness. It makes you remember the pride in Maxwell's eyes as he was holding your diploma. But it also makes you wonder what made Maxwell take that decision and end it all, after achieving so much together and having so many plans for the future."
+      "You look at the back of the photo. There is a phrase:<br><br> <span style='color: rgb(253, 216, 53)'><b><i>The brightest stars emerge in the deepest darkness</i></b></span>.<br><br> This is the phrase Maxwell always told you. It is a reminder that you can always find opportunities to grow and shine, even in the most difficult times."
+      jump photo_pendant
+
+photo_first:
+  choice:
+    "Which item to take?":
+    "PENDANT ⭐":
+      "As always, you put on your star-shaped pendant. Maxwell gifted it to you on your anniversary. His smile and loving words come to mind, and you feel a surge of overwhelming love and sadness. Why did Maxwell leave you so unexpectedly?"
+      jump just_notebook
+    "NOTEBOOK 📕":
+      "This notebook reminds you of the nights when Maxwell buried himself in studies. He had always been passionate about science, but lately he had been obsessed with some secret project that he never explained to you. What was he doing?.. A weird word, NCP, is constantly repeated in the notebook. Was it the name of his project?"
+      jump just_pendant
+
+just_pendant:
+  choice:
+    "Which item to take?":
+    "PENDANT ⭐":
+      "As always, you put on your star-shaped pendant. Maxwell gifted it to you on your anniversary. His smile and loving words come to mind, and you feel a surge of overwhelming love and sadness. Why did Maxwell leave you so unexpectedly?"
+      jump footwear
+just_notebook:
+  choice:
+    "Which item to take?":
+    "NOTEBOOK 📕":
+      "This notebook reminds you of the nights when Maxwell buried himself in studies. He had always been passionate about science, but lately he had been obsessed with some secret project that he never explained to you. What was he doing?.. A weird word, NCP, is constantly repeated in the notebook. Was it the name of his project?"
+      jump footwear
+just_photo:
+  choice:
+    "Which item to take?":
+    "PHOTO 🖼️":
+      "On the photo you see yourself and Maxwell on your graduation day, your faces are lit up with happiness. It makes you remember the pride in Maxwell's eyes as he was holding your diploma. But it also makes you wonder what made Maxwell take that decision and end it all, after achieving so much together and having so many plans for the future."
+      "You look at the back of the photo. There is a phrase:<br><br> <span style='color: rgb(253, 216, 53)'><b><i>The brightest stars emerge in the deepest darkness</i></b></span>.<br><br> This is the phrase Maxwell always told you. It is a reminder that you can always find opportunities to grow and shine, even in the most difficult times."
+      jump footwear
+
+footwear:
+  set_screen footwear 0 slide-top 2000
+  "You feel overwhelmed by the sadness and mystery surrounding the situation you're in.<br><br>You head to the closet and carefully choose your outfit for the day. It's time to decide on footwear. You take a look at the three options in front of you:"
+  choice:
+    "Choose footwear:":
+    "JUMP BOOTS 👢 <span style='color: rgb(45, 136, 224)'> + X STEALTH</span>"://-------------CAMBIAR X por VALOR STEALTH
+      //----------------- ADD STEALTH
+      "You opt for jump boots. You know that they will protect you from the morning cold and provide you some discretion thanks to their soft step. You think about how this stealth ability could help you move without attracting attention."
+      jump home_out
+    "SNEAKERS 👟 <span style='color: rgb(234, 95, 95)'> + X SPEED</span>"://-------------CAMBIAR X por VALOR SPEED
+      //----------------- ADD SPEED
+      "You decide to put on your sneakers. Their comfort gives you the energy and agility you need to face the day."
+      jump home_out
+    "HEELS 👠 <span style='color: rgb(102, 234, 95)'> + X JOVIALTY</span>"://-------------CAMBIAR X por VALOR JOVIALTY
+      //----------------- ADD JOVIALTY
+      "You choose to wear heels. Despite the pain you feel, you decide that a little joy and feeling fabulous might be what you need. Not only do they improve your mood, but they could also positively influence the people you come across."
+      jump home_out
+
+
+
+
+
+
+//--------------------------------NO ES PARTE DEL JUEGO (SE PODRIA BORRAR):----------------------------------------------------------------------
+home_out:
+  "With your shoes already on, you look in the mirror. You feel ready to face another day. This day promises to be long and maybe difficult, but you feel prepared for whatever is about to come."
+  jump enterHall
+
+tabletest:
+  choice:
+    "Which item to take?":
+    "PENDANT ⭐":
+      add_stat money +10
+      set inspectedPendant true
+      "As always, you put on your star-shaped pendant. Maxwell gifted it to you on your anniversary. His smile and loving words come to mind, and you feel a surge of overwhelming love and sadness. Why did Maxwell leave you so unexpectedly?"
+      jump checkItems
+    "NOTEBOOK 📕":
+      set inspectedNotebook true
+      "This notebook reminds you of the nights when Maxwell buried himself in studies. He had always been passionate about science, but lately he had been obsessed with some secret project that he never explained to you. What was he doing?.. A weird word, NCP, is constantly repeated in the notebook. Was it the name of his project?"
+      jump checkItems
+    "PHOTO 🖼️":
+      set inspectedPhoto true
+      "On the photo you see yourself and Maxwell on your graduation day, your faces are lit up with happiness. It makes you remember the pride in Maxwell's eyes as he was holding your diploma. But it also makes you wonder what made Maxwell take that decision and end it all, after achieving so much together and having so many plans for the future."
+      jump checkItems
+
+checkItems:
+  if (>= $stats.money.value 5):
+    "We're at least on day 3"
+  else:
+    jump main
+
   if (roll someSkillCheck intuition 40): // You can use skillchecks in conditions
     "This is not the first time that you find yourself in this situation, the heavy rain has rendered the metal boards slippery, you don’t want to slip again and embarrass yourself in front of the operators."
     "You graciously walk through the metal boards, effortlessly avoiding public embarrassment, you perform a small jump from the end of the board to the side of the traffic light beyond. Perfect execution."

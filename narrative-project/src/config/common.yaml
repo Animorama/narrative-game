@@ -1,11 +1,11 @@
 ---
-gameTitle: Narrative Game
+gameTitle: Jessica's memories
 saveFileName: Jessica's memories
 dialogPanel:
   overlayMode: true
   rightOffset: 100
   bottomOffset: 50
-  width: 475
+  width: 495
   height: 680
   textSpeed: 20
   animateText: true
@@ -18,7 +18,7 @@ layout:
   mobileDialogHeightPercentage: 60
   verticalLayoutThreshold: 600
   portraits:
-    width: 150
+    width: 225
     height: 225
 notifications:
   timeOnScreen: 1.5
@@ -27,14 +27,15 @@ hudStats:
   money:
     icon: img/ui/money.webp
     name: Money
-    startingValue: 10
+    hideName: true
+    startingValue: 0
     minValue: 0
-  energy:
-    icon: img/ui/energy.webp
-    name: Energy
-    startingValue: 10
+  testPoints:
+    icon: img/ui/money.webp
+    name: TestPoints
+    hideName: true
+    startingValue: 0
     minValue: 0
-    maxValue: 10
 saves:
   mode: manual
   slots: 10

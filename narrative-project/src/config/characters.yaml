@@ -1,6 +1,10 @@
 ---
 config:
   imagesPath: "./img/characters/"
+  anchor:
+      x: 5
+      y: 5
+      
 characters:
   game:
     name: ""
@@ -9,46 +13,126 @@ characters:
     style:
       color: orange
     sprites:
-      idle: player.webp
+      idle: jess_idle.png
     name: Jessica
-  operator:
+
+  jessica:
     sprites:
-      idle: operator_plumber.jpg
+      idle: jess_idle.png
+      angry: jess_angry.png
+      happy: jess_happy.png
+      scary: jess_frightened.png
+      sad: jess_sad.png
+      scream: jess_scream.png
     style:
-      color: white
-    name: Operator
-  cat:
+      color: orange
+    name: Jessica
+
+  chris:
     sprites:
-      idle: cat_idle.webp
+      idle: chris_idle.png
+      happy: chris_happy.png
     style:
-      color: white
-    name: Generic Cat
-  shopkeeper:
+      color: grey
+    name: Chris 
+
+  amanda:
     sprites:
-      idle: shop_cat.webp
+      idle: amanda_idle.png
+      angry: amanda_angry.png
+      happy: amanda_happy.png
+      scary: amanda_frightened.png
+      evil: amanda_evil.png
+      scream: amanda_scream.png
     style:
-      color: white
-    name: Shopkeeper
-  helper:
+      color: Purple
+    name: Amanda
+
+  maxwell:
     sprites:
-      idle: helper_cat.webp
+      idle: max_idle.png
+      angry: max_angry.png
+      happy: max_happy.png
+      scary: max_frightened.png
+      scream: max_scream.png
+      glasses: max_glasses.png
+      sad: max_sad.png
     style:
       color: green
-    name: Helper Cat
-  music_cat:
+    name: Maxwell
+
+  karen:
     sprites:
-      idle: music_cat.webp
+      angry: karen_angry.png
+      scream: karen_scream.png
+      sad: karen_sad.png
     style:
-      color: "#7f06e2"
-      boxCss:
-        background-color: red
-      textCss:
-        color: white
-        font-family: Comic Sans MS
-    name: Music Cat
-  inner:
+      color: grey
+    name: Karen
+
+  driver:
     sprites:
-      idle: inner_voice.webp
+      idle: taxi_idle.png
+      happy: taxi_happy.png
+      creepy: taxi_creepy.png
+    style:
+      color: grey
+    name: Driver
+
+  homeless:
+    sprites:
+      idle: homeless_idle.png
+      happy: homeless_happy.png
+      creepy: homeless_creepy.png
+    style:
+      color: grey
+    name: Homeless
+
+  jared:
+    sprites:
+      idle: jared_idle.png
+    style:
+      color: grey
+    name: Jared
+
+  fred:
+    sprites:
+      idle: captain_fred.png
     style:
       color: red
-    name: Inner Voice
+    name: Fred
+
+  ted:
+    sprites:
+      idle: captain_ted.png
+    style:
+      color: red
+    name: Ted
+
+  major:
+    sprites:
+      idle: captain1.png
+    style:
+      color: red
+    name: Major general
+
+  sergeant:
+    sprites:
+      idle: captain2.png
+    style:
+      color: red
+    name: Sergeant
+
+  commander:
+    sprites:
+      idle: captain2.png
+    style:
+      color: red
+    name: Commander
+
+  guard:
+    sprites:
+      idle: captain2.png
+    style:
+      color: red
+    name: Sergeant

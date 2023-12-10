@@ -1,7 +1,4 @@
-/*  See https://docs.narrat.dev/guides/theming-the-game-and-ui for info on how to customise your game with CSS. */
-
 #narrat-app {
-  /* Customise CSS variables here. They will override the existing narrat ones. You can also add your own variables */
   --bg-color: #131720;
   --text-color: #d9e1f2;
   --primary: hsl(255, 30%, 55%);
@@ -18,4 +15,114 @@
   --text-color: green !important;
   --bg-color: yellow !important;
 }
-/* Add any other CSS you want here */
+
+.hud-money {
+  position: absolute;
+  top: 500px;
+  left: 50px;
+}
+
+.hud-stat {
+  position: absolute;
+  top: 10px;
+  left: 510px;
+  width: 200px;
+  height: 50px;
+  border: none;
+  background: none;
+}
+
+.hud-text{
+  display: none;
+}
+
+.hud-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.dialog-container {
+  background-color: rgba(255, 100, 100, 0.1) !important;
+}
+
+.hud-skill {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.hud-skill-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* Estilos para la Barra Lateral */
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar li {
+    margin-bottom: 10px;
+}
+
+#sidebar button {
+    width: 100%;
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#sidebar button:hover {
+    background-color: #555;
+}
+
+.skills-container {
+  display: flex; /* Usa flexbox para una mejor disposición de los elementos */
+  flex-wrap: wrap; /* Permite que los elementos de habilidad se ajusten en filas */
+  justify-content: center; /* Centra los elementos de habilidad horizontalmente */
+  align-items: center; /* Centra los elementos de habilidad verticalmente */
+
+  position: fixed; /* Posición fija en la pantalla */
+  top: 50%; /* Centrado vertical */
+  left: 50%; /* Centrado horizontal */
+  transform: translate(-50%, -50%); /* Ajuste fino para centrar exactamente */
+
+  width: auto; /* Ancho según el contenido */
+  max-width: 80%; /* Máximo ancho para evitar que sea demasiado grande */
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+  padding: 20px; /* Espaciado interno */
+  box-sizing: border-box; /* Ajuste de caja */
+  border-radius: 10px; /* Bordes redondeados */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+
+  overflow-y: auto; /* Desplazamiento si el contenido es muy largo */
+}
+
+.skill-grid-element {
+  margin: 10px; /* Espaciado entre los elementos de habilidad */
+  /* Otros estilos para tus elementos de habilidad, si es necesario */
+}
+
+
+
+
+
+

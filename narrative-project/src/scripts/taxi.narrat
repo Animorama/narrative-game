@@ -1,0 +1,156 @@
+startTaxi:
+  set_screen taxi 0 slide-top 2000
+  "You sit in the back seat. The driver starts the car and the ride begins. He starts a casual conversation, sometimes glancing at you in the rear-view mirror."
+  talk driver idle "Aye! How are you?"
+  choice:
+    "What to say?":
+    "Hi, I'm okay, thanks. And you?":
+      talk driver idle "Aaahh, hanging on, another working day."
+      jump enterTaxi2
+    "Hi, somewhat busy...":
+      talk driver idle "How come?"
+      jump enterTaxi2
+
+enterTaxi2:
+  talk driver happy "Are ya going to work? Ya look like somebody very important. <i>*winks*</i>"
+  choice:
+    "What to say?":
+    "Somebody important?":
+      talk driver happy "Ya look elegant and very attractive. Somebody like ya must have a veeery special job."
+      jump enterTaxi3
+    "Thank you. I'm a psychologist.":
+      talk driver idle "A psychologist? Ya must be really good at understanding people."
+      jump enterTaxi4
+
+enterTaxi3:
+  choice:
+    "What to say?":
+    "Well, I work in a consultancy.":
+      talk driver idle "Sounds wee mysterious..."
+      jump enterTaxi4
+    "Thank you. I'm a psychologist.":
+      talk driver idle "A psychologist? Ya must be really good at understanding people."
+      jump enterTaxi4
+
+enterTaxi4:
+  talk driver happy "I bet you've met so many different...characters."
+  talk jessica happy "Yeah, I could say so. I'm sure the same happens to you, since you're a taxi driver."
+  talk driver happy "That's true true. But ya know, sometimes I wonder if I have missed something in life. I'm just a taxi driver, nothing important. Ya on the other hand..."
+  choice:
+    "What to say?":
+    "Thank you for your kind words.":
+      talk driver happy "My pleasure, sweetheart"
+      talk driver idle "Maybe one day I'll shine like ya..."
+      talk jessica happy "As someone used to tell me: The brightest stars emerge in the deepest darkness."
+      jump enterTaxi5
+    "I'm sure you will find your moment.":
+      talk driver happy "I hope ya right, sweetheart"
+      talk driver idle "Maybe one day I'll shine like ya..."
+      talk jessica happy "As someone used to tell me: The brightest stars emerge in the deepest darkness."
+      jump enterTaxi5
+    "As someone used to tell me: The brightest stars emerge in the deepest darkness.":
+      jump enterTaxi5
+
+enterTaxi5:
+  "The taxi driver is surprised by your words and starts murmuring something."
+  talk driver happy "Aye, that's funny. About two weeks ago one lad said that too. I remember it very well."
+  "Your heart starts racing. Emotions take over you. You feel bewildered by this information."
+  choice:
+    "What to say?":
+    "Do you know his name?":
+      talk driver idle "Nah, I don't ask all the passengers for their names. He talked about his life a lot. About protecting his loved ones, he looked wee worried."
+      talk jessica sad "What did he look like??"
+      jump enterTaxi6
+    "What did he look like??":
+      jump enterTaxi6
+
+enterTaxi6:
+  talk driver idle "A young lad with dark hair, beard, and some odd red glasses."
+  "You clearly remember that Maxwell was thinking of getting those new funky sunglasses. He had seen them in some shop in town, they had red tinted lenses and they caught his attention. He always dressed sleek and casual, but the sunglasses were his weakness."
+  "The thought that Maxwell might be alive was creeping more and more into your mind. Although you are trying to be realistic, that single thought doesn't leave your mind."
+  talk jessica sad "Could his name be Maxwell?.."
+  talk driver idle "I dunno sweetie. Who is ya Maxwell?"
+  choice:
+    "What to say?":
+    "I would rather not talk about it.":
+      talk driver idle "Aye, I see. Must be someone ya lost."
+      talk jessica sad "Yeah, something like that..."
+      jump enterTaxi7
+    "Maxwell was my boyfriend. He  passed away a couple of months ago. He used to say this phrase to me.":
+      jump enterTaxi7
+
+enterTaxi7:
+  talk driver happy "Aye, that's wee sad. But ya know, life goes on, there are always new opportunities coming. <i>*winks*</i>"
+  "You notice a certain lack of sensitivity in his words, and his tone sounds suspicious. But you decide to let it slip."
+  choice:
+    "What to say?":
+    "I'm not ready for these opportunities yet.":
+      jump enterTaxi8
+    "I guess...":
+      jump enterTaxi8
+
+enterTaxi8:
+  talk driver idle "Das' not the right person, believe me."
+  choice:
+    "What to say?":
+    "Why?":
+      jump enterTaxi9
+    "Maybe... Where did you take him?":
+      jump enterTaxi9
+
+enterTaxi9:
+  talk driver idle "I took him to the city square. He went to the back of some supermarket. It seemed wee suspicious, maybe he's dangerous."
+  talk jessica idle "Could you take me there?"
+  talk driver creepy "I don' think that safe, sweetie. I could take you somewhere better...  <i>*grins*</i>"
+  choice:
+    "What to say?":
+    "No, I need to go there":
+      jump enterTaxi10_bad
+    "No, stop right here.":
+      jump enterTaxi10_good
+
+enterTaxi10_good:
+  talk driver happy "Do ya want to get off? I thought our conversation was just starting. Stay, sweetie, I'll take ya to the place. <i>*smirks suspiciously*</i>"
+  choice:
+    "Stay in the taxi?":
+    "(YES)👍":
+      jump enterTaxi10_bad
+    "(NO)👎":
+      jump endTaxi
+
+endTaxi:
+  "You don't trust anyone, especially strangers. With a firm request and a threat to call the police, you make the taxi driver stop and drop you off at a safe place: city square. There you can finally start your investigation. You head to the supermarket that the taxi driver motioned. Maybe somebody had seen a man wearing red sunglasses..."
+  jump startSupermarket
+
+enterTaxi10_bad:
+  talk driver idle "At ya orders miss. I can't say no to such an attractive girl... <i>*licks his lips*</i>"
+  "You try to ignore his comments and focus on your mission. But as much as you try to ignore him, he doesn't stop and his comments only get worse. Fed up with this, you decide to act, but it's too late..."
+  talk jessica scary "<i>*raises voice*</i> Stop the car!"
+  talk driver happy "Aye, calm down, I'm not gonna hurt ya..."
+  "You notice the doors are unlocked. This might be your chance to escape."
+  choice:
+    "Open the door and jump out?":
+    "(YES)👍":
+      jump enterTaxi10_bad
+      "You open the door and jump out of the car while it's still moving. You quickly get up and start running towards the city square."
+      "You hear the car tired squealing and then hear approaching footsteps."
+      jump skill_speed_toEscapeTaxi
+    "(NO)👎":
+      "The driver stops the car and gets out. You try to open the door but now it's locked. You turn to the other side to try another door and before you know it,  you feel a hit on your head and everything turns black..."
+      jump gameOver
+
+skill_speed_toEscapeTaxi:
+  "TIRADA FAKE"//Consigues llegar al taxi? Cambiar TestPoints por TIRADA STEALTH
+  if (== $stats.testPoints.value 0)://--------SI
+    jump manage_to_run_taxi
+  else://-------------------------------------NO
+    jump not_run_taxi
+
+manage_to_run_taxi:
+  "You run as fast as you can and don't stop until you get to the supermarket. There are people outside, you feel safe now. You stop to try and catch your breath. That was a close one..."
+  "You are trying to calm down after the chase. The thought that you might have died right there doesn't let you concentrate. You remember the breathing techniques that they showed you at university. After walking a bit along the street and breathing, you manage to pull yourself together and decide to go into the supermarket."
+  jump startSupermarket
+
+not_run_taxi:
+  "The footsteps approach, you try to run faster, but suddenly you feel a hit on your head and everything turns black..."
+  jump gameOver
