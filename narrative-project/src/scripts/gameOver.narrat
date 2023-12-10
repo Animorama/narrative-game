@@ -1,6 +1,8 @@
 gameOver:
   set_screen default 0 fade 2000
   "Game Over"
+  wait 600
+  menu_return
 THEEND:
   set_screen default 0 fade 2000
   "THE END"
