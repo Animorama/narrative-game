@@ -100,7 +100,7 @@ enterNCP:
   "As you get closer to the elevator, the doors suddenly open and several guards get out, walking in your direction. Your heart starts racing when you realize that you're almost trapped."
   talk jessica sad "Max, I've got company..."
   choice:
-    "What do you do??":
+    "What do you do?":
     "(Keep walking)":
       talk maxwell angry "Stay calm and keep walking. If they see you run, they will suspect something. Act as if you belonged here."
       "You confidently walk towards the guards, trying to look secure. The guards briefly look at you, but your confidence seems to convince them. You get to the elevator."

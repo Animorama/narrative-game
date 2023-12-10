@@ -1,5 +1,5 @@
 main:
-  //jump startNCP
+  jump startDungeon
   set_screen room 0 slide-top 2000
   play music calm
   "You wake up to the annoying sound of your alarm. You groan and reach for your phone to turn it off."

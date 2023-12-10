@@ -81,7 +81,7 @@ askWorkers2_long:
       jump askWorkers2
 
 workHere:
-  talk karen scream "Are you sure? Do you want to spend your days arranging shelves for 5 credits an hour? I don't think so!"
+  talk karen scream "Are you sure? Do you want to spend your days arranging shelves for 5 $ an hour? I don't think so!"
   jump calm_karen
 
 askWorkers2:
@@ -92,7 +92,7 @@ askWorkers2:
       jump workHere
     "Why are you so hostile? Can I help you?":
       talk karen angry "<i>*smirks*</i> Now you're trying to be compassionate? How pathetic..."
-      talk karen scream "<i>*ironically*</i> Yes! I'm bitter! What a surprise, huh? How could I not be? Charging only 5 credits per hour and no breaks!"
+      talk karen scream "<i>*ironically*</i> Yes! I'm bitter! What a surprise, huh? How could I not be? Charging only 5 $ per hour and no breaks!"
       jump calm_karen
 
 calm_karen:

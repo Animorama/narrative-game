@@ -21,7 +21,7 @@ getTaxi:
   "The taxi slows down and stops right in front of you. As you approach the driver's window. you see the driver's seemingly friendly face. He's a middle-aged man with a welcoming smile."
   talk driver idle "Aye! Where ya goin'?"
   talk jessica idle "To the center. How much would it be?"
-  talk driver idle "Hm, to the center shall be 10 credits.'?"
+  talk driver idle "Hm, to the center shall be 10 $.'?"
   choice:
     "Take taxi?":
     "ACCEPT 👍 <span style='color: rgb(215, 121, 9)'> - 10$</span>":
@@ -78,7 +78,7 @@ notEvadeHomeless:
   jump detected_by_homeless
 
 skill_speed_toEvadeHomeless:
-  if (roll evadeHom speed 10):
+  if (roll evadeHom speed 12):
     jump escapeHomeless
   else:
     jump noEscapeHomeless

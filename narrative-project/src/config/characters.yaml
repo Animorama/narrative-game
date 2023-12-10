@@ -28,6 +28,13 @@ characters:
       color: orange
     name: Jessica
 
+  bob:
+    sprites:
+      idle: bob.png
+    style:
+      color: grey
+    name: Prisioner
+
   chris:
     sprites:
       idle: chris_idle.png
@@ -143,10 +150,3 @@ characters:
     style:
       color: grey
     name: Receptionist
-
-prisioner:
-  sprites:
-    idle: prisioner.png
-  style:
-    color: grey
-  name: Prisioner

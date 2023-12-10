@@ -23,29 +23,71 @@ dungeon2:
   talk ted idle "I've always dreamt of something more adventurous, you know? But who hasn't? That's how life is, I guess."
   talk fred idle "Enough. Stop talking to the prisoner!"
   "The other prisoner, watching the whole scene with a silly smile, decides to interfere in the most tense moment."
-  talk prisoner idle "Don't think I can't see whatcha tryin' to do, dollie. You won't be able to convince anyone, you're done, heh"
+  talk bob idle "Don't think I can't see whatcha tryin' to do, dollie. You won't be able to convince anyone, you're done, heh"
   "His words leave you unsettled, but you try to keep calm and not to show any weakness to him."
-  talk prisoner idle"If you really wanna get outta here, I know what to do."
+  talk bob idle"If you really wanna get outta here, I know what to do."
   "You are intrigues and despite your concerns, you decide to listen to what he has to say."
   talk jessica idle "Alright, what would be the plan?"
-  talk prisoner idle"There's a loose panel in da corner. Leads to the ventilation ducts. Not the easiest way, but the only one we got."
+  talk bob idle"There's a loose panel in da corner. Leads to the ventilation ducts. Not the easiest way, but the only one we got."
   talk jessica idle "What do you mean?"
-  talk prisoner idle "Well, it's almost impossible to reach da panel and get in the ducts. But one of us can push the other, heh"
+  talk bob idle "Well, it's almost impossible to reach da panel and get in the ducts. But one of us can push the other, heh"
   talk jessica angry "How can I trust you? What guarantee do I have that it's not a trap?"
-  talk prisoner idle "None, dollie. But in this situation, can you really be picky?"
+  talk bob idle "None, dollie. But in this situation, can you really be picky?"
   "You find yourself at a crossroads. On the one hand, there is the option of bribing a guard. On the other, the prisoner's plan to escape together, a way that promises freedom but also involves the risk of releasing a potential criminal."
   choice:
     "What do you do?":
-    "(Bribe a guard)":
-      talk maxwell scary "Jess, what are you trying to do?"
-      talk fred idle "It's our job, that's it. There's nothing to handle."
-      jump dungeon2
-    "(Try escape)"://end
-      talk maxwell scary "Jess, what are you trying to do?"
-      talk fred idle "It's just a job, like any other. Stability, security, I don't need anything else."
-      jump dungeon2
+    "(Bribe a guard <span style='color: rgb(215, 121, 9)'> - 10 $</span>)":
+      add_stat money -10
+      choice:
+        "Which guard to bride?":
+        "TED":
+          talk jessica happy "Hey, you talked about living adventures, exploring the world. What would you say if I offered you the opportunity to start that life? I just need a small favor."
+          talk ted idle "That sounds like a bribe. It's risky, they could fire me... or worse. What if they catch us?"
+          talk jessica idle "I'll take care of it. I just need your help getting out of here. The rest is my responsibility."
+          "Finally, Ted nods. You can see a mix of fear and excitement on his face."
+          "After a few minutes, you get the opportunity: Fred leaves to make a call."
+          jump end_bribe_guards
+        "FRED":
+          talk jessica happy "Hey, I know you're a man of principles, but we all have a price."
+          "Fred immediately gets very mad."
+          talk fred idle "So you think you can just buy me?! That's an insult to my professionalism. I'm going to make sure you pay for this."
+          "Fred confiscates all your belongings, including the money you had. He then goes to report to his superiors. As Fred leaves the room, Ted approaches you."
+          talk ted idle "You shouldn't have tried this with Fred, you should've talked to me. I don't see you as a bad person. I'll let you out."
+          talk jessica idle "Really?? Why?"
+          talk ted idle "I thought of what you said about adventures. And, you know, I don't really care about this job. I'll quit anyway. Go, before I change my mind."
+          jump end_bribe_guards
+    "(Try escape)":
+      talk jessica idle "Alright, I accept your plan. But I hope you keep your word."
+      "The prisoner nods and approaches the loose panel. With effort and caution, you manage to open the access to the ventilation."
+      "He propels you upwards, allowing you to reach the opening."
+      "Once you're inside the duct, you realize you have control over the situation. You can leave him behind, getting rid of the possibility of releasing someone dangerous."
+      "The prisoner looks at you, expecting your next action."
+      talk bob idle "Remember, we need each other, without me you wouldn't be here."
+      choice:
+        "What do you do?":
+        "(Help him)":
+          talk jessica happy "A promise is a promise. Let's do this together."
+          "You reach down to help him climb into the vent. Together you begin moving through the narrow duct."
+          "You reach an opening that leads to the building's emergency staircase."
+          "Here you ways part. The man heads down, looking for his own escape route. You have another plan in mind: get to the 5th floor."
+          talk bob idle "Thank you for keeping your promise. Be careful out there."
+          jump endDungeon
+        "(Leave him)":
+          talk jessica sad "I'm sorry but I can't risk releasing a criminal. I have a mission to complete and I can't put it in danger."
+          "The prisoner, surprised by your decision, frowns and looks at you, disappointed and frustrated."
+          talk bob idle "So you're breaking your word? That's how you really are?"
+          "Although you feel guilty breaking your promise, you feel like that's the right decision from a tactical point of view."
+          "With one last glance at the prisoner, you crawl away through the ventilation duct."
+          "You reach an opening that leads to the building's emergency staircase."
+          jump endDungeon
 
+end_bribe_guards:
+  "Ted discreetly releases you. You carefully head towards the emergency staricase."
+  jump endDungeon
 
+endDungeon:
+  "Finally, you get to the 5th floor. That's where Amanda's office is located."
+  jump startOffice
 
 
   
