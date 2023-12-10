@@ -11,8 +11,6 @@ screens:
     background: img/backgrounds/dress.png
   hall:
     background: img/backgrounds/door.png
-  back:
-    background: img/backgrounds/back.png
   cabin:
     background: img/backgrounds/cabin.png
   dungeon:
