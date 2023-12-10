@@ -1,7 +1,5 @@
 main:
-  jump startDungeon
   set_screen room 0 slide-top 2000
-  play music calm
   "You wake up to the annoying sound of your alarm. You groan and reach for your phone to turn it off."
   "After doing so, you feel your usual morning tiredness. The room is lightly lit by the faint light of dawn coming through the curtains. You lazily stretch in bed, wondering how you'll face another day full of overwhelming responsibilities and tasks."
   set_screen bath 0 slide-top 2000
