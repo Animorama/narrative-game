@@ -2,9 +2,9 @@
 config:
   imagesPath: "./img/characters/"
   anchor:
-      x: 5
-      y: 5
-      
+    x: 5
+    y: 5
+
 characters:
   game:
     name: ""
@@ -34,7 +34,7 @@ characters:
       happy: chris_happy.png
     style:
       color: grey
-    name: Chris 
+    name: Chris
 
   amanda:
     sprites:
@@ -82,8 +82,7 @@ characters:
   homeless:
     sprites:
       idle: homeless_idle.png
-      happy: homeless_happy.png
-      creepy: homeless_creepy.png
+      scream: homeless_scream.png
     style:
       color: grey
     name: Homeless
@@ -125,14 +124,29 @@ characters:
 
   commander:
     sprites:
-      idle: captain2.png
+      idle: captain3.png
     style:
       color: red
     name: Commander
 
   guard:
     sprites:
-      idle: captain2.png
+      idle: captain4.png
+      scream: captain4_scream.png
     style:
       color: red
     name: Sergeant
+
+  receptionist:
+    sprites:
+      idle: rese.png
+    style:
+      color: grey
+    name: Receptionist
+
+prisioner:
+  sprites:
+    idle: prisioner.png
+  style:
+    color: grey
+  name: Prisioner

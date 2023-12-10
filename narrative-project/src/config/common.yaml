@@ -28,13 +28,7 @@ hudStats:
     icon: img/ui/money.webp
     name: Money
     hideName: true
-    startingValue: 0
-    minValue: 0
-  testPoints:
-    icon: img/ui/money.webp
-    name: TestPoints
-    hideName: true
-    startingValue: 0
+    startingValue: 10
     minValue: 0
 saves:
   mode: manual

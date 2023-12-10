@@ -20,9 +20,9 @@ screens:
   entrance_ncp:
     background: img/backgrounds/entrance_ncp.png
   entrance_tecnoplex:
-    background: img/backgrounds/door.png
+    background: img/backgrounds/entrance_tecnoplex.png
   hideaway:
-    background: img/backgrounds/door.png
+    background: img/backgrounds/hideaway.png
   metro:
     background: img/backgrounds/metro.png
   ncp:

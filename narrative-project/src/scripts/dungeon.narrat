@@ -1,0 +1,54 @@
+startDungeon:
+  set_screen dungeon 0 slide-top 2000
+  "They lock you up with another person, a dangerous looking guy. He observes you very closely, as if he was trying to understand what's on your mind."
+  "The dungeon is guarded by two security guys. On their badges you can see their names, Ted and Fred."
+  talk fred idle "You'll stay here until Amanda comes to question you. She'll tell us what to do with you."
+  "You decide to try and talk to Fred and Ted, seeking to understand them better and see which one of them might be the easiest to bribe. It seems like the only thing you can do in such situation."
+  choice:
+    "What to say?":
+    "It must be hard being a guard. How are you handling that?":
+      talk maxwell scary "Jess, what are you trying to do?"
+      talk fred idle "It's our job, that's it. There's nothing to handle."
+      jump dungeon2
+    "What led you to working here? It must be so interesting to be close to the power.":
+      talk maxwell scary "Jess, what are you trying to do?"
+      talk fred idle "It's just a job, like any other. Stability, security, I don't need anything else."
+      jump dungeon2
+
+dungeon2:
+  "They lock you up with another person, a dangerous looking guy. He observes you very closely, as if he was trying to understand what's on your mind."
+  talk ted idle "Well, it is a job, like any other. Sometimes it's boring, but time passes. And, you know, sometimes you meet interesting people."
+  talk jessica happy "Have you ever thought of doing something different? Something more...exciting, maybe?"
+  talk fred idle "I'm satisfied with my job. It's stable and it meets my needs."
+  talk ted idle "I've always dreamt of something more adventurous, you know? But who hasn't? That's how life is, I guess."
+  talk fred idle "Enough. Stop talking to the prisoner!"
+  "The other prisoner, watching the whole scene with a silly smile, decides to interfere in the most tense moment."
+  talk prisoner idle "Don't think I can't see whatcha tryin' to do, dollie. You won't be able to convince anyone, you're done, heh"
+  "His words leave you unsettled, but you try to keep calm and not to show any weakness to him."
+  talk prisoner idle"If you really wanna get outta here, I know what to do."
+  "You are intrigues and despite your concerns, you decide to listen to what he has to say."
+  talk jessica idle "Alright, what would be the plan?"
+  talk prisoner idle"There's a loose panel in da corner. Leads to the ventilation ducts. Not the easiest way, but the only one we got."
+  talk jessica idle "What do you mean?"
+  talk prisoner idle "Well, it's almost impossible to reach da panel and get in the ducts. But one of us can push the other, heh"
+  talk jessica angry "How can I trust you? What guarantee do I have that it's not a trap?"
+  talk prisoner idle "None, dollie. But in this situation, can you really be picky?"
+  "You find yourself at a crossroads. On the one hand, there is the option of bribing a guard. On the other, the prisoner's plan to escape together, a way that promises freedom but also involves the risk of releasing a potential criminal."
+  choice:
+    "What do you do?":
+    "(Bribe a guard)":
+      talk maxwell scary "Jess, what are you trying to do?"
+      talk fred idle "It's our job, that's it. There's nothing to handle."
+      jump dungeon2
+    "(Try escape)"://end
+      talk maxwell scary "Jess, what are you trying to do?"
+      talk fred idle "It's just a job, like any other. Stability, security, I don't need anything else."
+      jump dungeon2
+
+
+
+
+  
+
+
+

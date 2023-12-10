@@ -7,11 +7,21 @@ import gameOver from "./gameOver.narrat";
 import supermarket from "./supermarket.narrat";
 import station from "./station.narrat";
 import hideaway from "./hideaway.narrat";
+import tecnoplex from "./tecnoplex.narrat";
+import ncp from "./ncp.narrat";
+import dungeon from "./dungeon.narrat";
 
-
-
-
-
-
-
-export default [main, apartment, quest, street, taxi, gameOver, supermarket, station, hideaway];
+export default [
+  main,
+  apartment,
+  quest,
+  street,
+  taxi,
+  gameOver,
+  supermarket,
+  station,
+  hideaway,
+  tecnoplex,
+  ncp,
+  dungeon,
+];

@@ -1,0 +1,83 @@
+startTecnoplex:
+  set_screen entrance_tecnoplex 0 slide-top 2000
+  "As you approach the entrance to Tecnoplex, you start worrying about the amount of people and the visible presence of security."
+  "You touch the pendant, activating the transmitter to speak to Max."
+  talk jessica idle "Max, I'm at the entrance. There's a lot of security."
+  talk maxwell idle "Stay calm and believe in yourself. You can do this and much more."
+  "You take a deep breath and approach the receptionist."
+  talk jessica happy "Hi, good morning."
+  talk receptionist idle "Good morning. The entrance to Tecnoplex is 20 $. Cash or card?"
+  "Spending such a big amount of money to just get into Tecnoplex could bring future troubles, you could need this money for other things. However, it's the easiest way to get in."
+  choice:
+    "What do you do?":
+    "(PAY) <span style='color: rgb(215, 121, 9)'> -15 $ </span>":
+      add_stat money -15
+      jump enterTecnoplex
+    roll testThiing joviality 8 "(CONVINCE)":
+      success:
+        jump convince_rece
+      failure:
+        jump no_convince_rece
+
+convince_rece:
+  talk jessica happy "As a matter of fact, I'm here for an event. I'm a journalist from Tech Insights."
+  talk receptionist idle "I don't have any press passes registered for today. Could you show me some ID or accreditation?"
+  talk jessica idle "Oh, it looks like there was a misunderstanding with my accreditation. But my presence here is essential. Tech Insights has always supported Tecnoplex with very detailed reports."
+  talk receptionist idle "I'm sorry, but there's nothing I can do if you don't have an accreditation. These are the rules."
+  talk jessica happy "I totally understand and respect the rules. But could you maybe make today an exception? It would be a shame if I missed this opportunity to highlight the innovations of Tecnoplex."
+  talk receptionist idle "Alright, I don't want to get in trouble so I'll let you in. But just this one time. And please, make sure to bring you accreditation in the future."
+  talk jessica happy "Absolutely. I'll have it the next time. And thank you very much. Have a great day!"
+  jump enterTecnoplex
+
+
+no_convince_rece:
+  talk jessica happy "As a matter of fact, I'm here for an event. I'm a journalist from Tech Insights."
+  talk receptionist idle "I don't have any press passes registered for today. Could you show me some ID or accreditation?"
+  talk jessica happy "Oh, shoot, I don't have it on me. Could you make an exception?"
+  talk receptionist idle "I can't let you in without an ID. I'm sorry, but these are the rules."
+  "<span style='color: rgb(215, 121, 9)'> -15 $ </span>"
+  add_stat money -15
+  jump enterTecnoplex
+
+
+enterTecnoplex:
+  "The receptionist nods and lets you in."
+  set_screen tecnoplex 0 slide-top 2000
+  "Once you're in, you look for the building where Jared is supposed to be. Max guides you through the transmitter, giving you instructions on where to go."
+  talk maxwell idle "Alright, Jess. Go to the building B. Jared will be in his laboratory, the code is Solar Eclipse."
+  "As you approach Jared's laboratory, his eccentric figure and the gadgets around him capture your attention. You brace yourself and come in."
+  talk jessica idle "Solar Eclipse. Maxwell sent me."
+  "Jared's expression changes immediately, his eyes light up with a mix of surprise and recognition."
+  talk jared idle "Ah, so you must be Jessica. Maxwell told me a lot about you. How are you dealing with the situation, kid?"
+  talk jessica idle "To be honest, it's been overwhelming. But I have no time for reflections."
+  talk jared idle "Maxwell's always had a good eye for people. He told me you were brave and decisive. He had a point, eh!"
+  talk jessica happy "Thank you, Jared. I'll try to meet the expectations. <i>*laughs nervously*</i>"
+  talk jared idle "I know Max believes in you, and that's enough for me. Here you go, your accreditation. It will allow you to get into Amanda's office, it's on the 5th floor. But you need to be very careful, kid."
+  talk jessica happy "I'll do my best, I promise."
+  "Jared shows you a variety of gadgets, each of them has a very specific purpose and might be essential for your mission."
+  talk jared idle "Alright, take a look at those."
+  choice:
+    "What to buy?":
+    "EXOSKELETON 🦴 <br><span style='color: rgb(234, 95, 95)'> + 2 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 5 $</span>":
+      add_stat money -5
+      add_level speed 2
+      jump endTecnoplex
+    "CAMOUFLAGE 🏴 <br><span style='color: rgb(45, 136, 224)'> + 2 STEALTH</span><br><span style='color: rgb(215, 121, 9)'> - 7 $</span>":
+      add_stat money -7
+      add_level stealth 2
+      jump endTecnoplex
+    "PHEROMONE SPRAY 💦<br><span style='color: rgb(102, 234, 95)'> + 2 JOVIALTY</span><br><span style='color: rgb(215, 121, 9)'> - 7 $</span>":
+      add_stat money -7
+      add_level joviality 2
+      jump endTecnoplex
+    "RETRACTABLE WHEELS 🚗<br><span style='color: rgb(234, 95, 95)'> + 3 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 8 $</span>":
+      add_stat money -8
+      add_level speed 3
+      jump endTecnoplex
+
+endTecnoplex:
+  "Armed with the gadgets and the accreditation card, you now feel more prepared the challenges that are awaiting you. Jared tells you which Tecnoplex building the NCP department is located in. You head there."
+  jump startNCP
+
+
+

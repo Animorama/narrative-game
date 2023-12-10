@@ -20,17 +20,20 @@ optionsMarket:
 shopMenu:
   choice:
     "What to buy?":
-    "COFFEE ☕ <br><span style='color: rgb(234, 95, 95)'> + X SPEED</span><br><span style='color: rgb(215, 121, 9)'> - X $</span>"://-------------CAMBIAR X por VALOR SPEED Y MONEY
-    //----------------- ADD SPEED
+    "COFFEE ☕ <br><span style='color: rgb(234, 95, 95)'> + 1 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 3 $</span>":
+      add_stat money -3
+      add_level speed 1
       jump optionsMarket
-    "SUNGLASSES 🕶️ <br><span style='color: rgb(45, 136, 224)'> + X STEALTH</span><br><span style='color: rgb(215, 121, 9)'> - X $</span>"://-------------CAMBIAR X por VALOR STEALTH Y MONEY
-    //----------------- ADD STEALTH
+    "SUNGLASSES 🕶️ <br><span style='color: rgb(45, 136, 224)'> + 1 STEALTH</span><br><span style='color: rgb(215, 121, 9)'> - 4 $</span>":
+      add_stat money -4
+      add_level stealth 1
+    "ENERGY DRINK 🥤<br><span style='color: rgb(234, 95, 95)'> + 2 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 5 $</span>":
+      add_stat money -5
+      add_level speed 2
       jump optionsMarket
-    "ENERGY DRINK 🥤<br><span style='color: rgb(234, 95, 95)'> + X SPEED</span><br><span style='color: rgb(215, 121, 9)'> - X $</span>"://-------------CAMBIAR X por VALOR SPEED Y MONEY
-    //----------------- ADD SPEED
-      jump optionsMarket
-    "VANILLA PERFUME 🧴<br><span style='color: rgb(102, 234, 95)'> + X JOVIALTY</span><br><span style='color: rgb(215, 121, 9)'> - X $</span>"://-------------CAMBIAR X por VALOR JOVIALTY Y MONEY
-    //----------------- ADD JOVIALTY
+    "VANILLA PERFUME 🧴<br><span style='color: rgb(102, 234, 95)'> + 1 JOVIALTY</span><br><span style='color: rgb(215, 121, 9)'> - 5 $</span>":
+      add_stat money -5
+      add_level joviality 1
       jump optionsMarket
 
 
@@ -100,33 +103,30 @@ calm_karen:
       talk jessica idle "Maybe we could come to an agreement..."
       "With a light blush on your cheeks, thinking of the unusual decision you're about to make, you discreetly take out a certain amount of money and show it to the assistant."
       jump bribe_karen
-    "(Calm her) <span style='color: rgb(102, 234, 95)'> JOVIALTY > X </span>"://-------------CAMBIAR X por VALOR JOVIALTY
-      jump skill_jovialty_toCalmKaren
-    //ACTIVE SKILLCHECK SYNTAX
-    // roll testThiing joviality 8 "(Calm her) <span style='color: rgb(102, 234, 95)'> JOVIALTY > X </span>"://-------------CAMBIAR X por VALOR JOVIALTY
-    //   success:
-    //     jump skill_jovialty_toCalmKaren
-    //   failure:
-    //     jump denyBribe_karen
+    roll testThiing joviality 8 "(Calm her)":
+      success:
+        jump karen_calms_down
+      failure:
+        jump karen_gets_mad
 
 bribe_karen:
   choice:
     "Bribe offer":
     "<span style='color: rgb(102, 234, 95)'>3 $</span>":
+      add_stat money -3
       jump denyBribe_karen
-      //----------------- REMOVE MONEY(-3)
     "<span style='color: rgb(102, 234, 95)'>5 $</span>":
+      add_stat money -5
       jump denyBribe_karen
-      //----------------- REMOVE MONEY(-5)
     "<span style='color: rgb(102, 234, 95)'>8 $</span>":
+      add_stat money -8
       jump denyBribe_karen
-      //----------------- REMOVE MONEY(-8)
     "<span style='color: rgb(102, 234, 95)'>10 $</span>":
+      add_stat money -10
       jump acceptBribe_karen
-      //----------------- REMOVE MONEY(-10)
     "<span style='color: rgb(102, 234, 95)'>15 $</span>":
+      add_stat money -15
       jump acceptBribe_karen
-      //----------------- REMOVE MONEY(-15)
 
 denyBribe_karen:
   "You attempt of bribing her doesn't turn out as expected. The sales assistant looks at the money and then back at you. You see the indignation and offense on her face."
@@ -138,13 +138,6 @@ denyBribe_karen:
 acceptBribe_karen:
   "After a short pause and an appraising look, the sales assistant accepts the money. She looks surprised, but content. Then she starts talking, giving you the information you were asking for."
   jump karen_revelation
-
-skill_jovialty_toCalmKaren:
-  "TIRADA FAKE"//Consigues calmar a karen? Cambiar TestPoints por TIRADA JOVIALTY
-  if (roll calmKaren joviality 6)://--------SI
-    jump karen_calms_down
-  else://-------------------------------------NO
-    jump karen_gets_mad
 
 karen_calms_down:
   "You notice her badge. You take a deep breath and start speaking to her with a soft and calming tone."
@@ -176,17 +169,17 @@ karen_gets_mad:
 shopMenu_free:
   choice:
     "What to get?":
-    "COFFEE ☕ <br><span style='color: rgb(234, 95, 95)'> + X SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 0 $</span>"://-------------CAMBIAR X por VALOR SPEED Y MONEY
-    //----------------- ADD SPEED
+    "COFFEE ☕ <br><span style='color: rgb(234, 95, 95)'> + 1 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 0 $</span>"://-------------CAMBIAR X por VALOR SPEED Y MONEY
+      add_level speed 1
       jump karen_calms_down2
-    "SUNGLASSES 🕶️ <br><span style='color: rgb(45, 136, 224)'> + X STEALTH</span><br><span style='color: rgb(215, 121, 9)'> - 0 $</span>"://-------------CAMBIAR X por VALOR STEALTH Y MONEY
-    //----------------- ADD STEALTH
+    "SUNGLASSES 🕶️ <br><span style='color: rgb(45, 136, 224)'> + 1 STEALTH</span><br><span style='color: rgb(215, 121, 9)'> - 0 $</span>"://-------------CAMBIAR X por VALOR STEALTH Y MONEY
+      add_level stealth 1
       jump karen_calms_down2
-    "ENERGY DRINK 🥤<br><span style='color: rgb(234, 95, 95)'> + X SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 0 $</span>"://-------------CAMBIAR X por VALOR SPEED Y MONEY
-    //----------------- ADD SPEED
+    "ENERGY DRINK 🥤<br><span style='color: rgb(234, 95, 95)'> + 2 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 0 $</span>"://-------------CAMBIAR X por VALOR SPEED Y MONEY
+      add_level speed 2
       jump karen_calms_down2
-    "VANILLA PERFUME 🧴<br><span style='color: rgb(102, 234, 95)'> + X JOVIALTY</span><br><span style='color: rgb(215, 121, 9)'> - 0 $</span>"://-------------CAMBIAR X por VALOR JOVIALTY Y MONEY
-    //----------------- ADD JOVIALTY
+    "VANILLA PERFUME 🧴<br><span style='color: rgb(102, 234, 95)'> + 1 JOVIALTY</span><br><span style='color: rgb(215, 121, 9)'> - 0 $</span>"://-------------CAMBIAR X por VALOR JOVIALTY Y MONEY
+      add_level joviality 1
       jump karen_calms_down2
 
 karen_calms_down2:

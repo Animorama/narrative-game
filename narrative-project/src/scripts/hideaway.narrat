@@ -19,8 +19,8 @@ startHideaway:
     "(NO)👎":
       "A wave of anger towards Max covers you. Unable to stay calm, you try to punch him."
       "However, with surprising agility. he dodges you and traps you from behind."
-      "Your impatience and the inability to calm down damage your joviality. <br><br><span style='color: rgb(102, 234, 95)'> - X JOVIALTY</span>"//-------------CAMBIAR X por VALOR JOVIALTY
-      //----------------- REMOVE JOVIALTY(- X)
+      "Your impatience and the inability to calm down damage your joviality. <br><br><span style='color: rgb(102, 234, 95)'> - 1 JOVIALTY</span>"
+      add_level joviality 1
       "Gently releasing you, Maxwell steps back. In his eyes you can see a mix of preoccupation and understanding."
       talk maxwell sad "Jess, listen to me, please..."
       jump maxwell_reveal
@@ -40,40 +40,139 @@ maxwell_reveal:
   talk maxwell sad "I'm sorry, Jess, I'm so so sorry..."
   "Your arms rise to hug him back... Time freezes while you're hugging each other. But then Maxwell lets you go."
   talk maxwell sad "I want to make everything clear for you, my little star. Ask me anything."
+  set data.counter 0
   jump menu_ask_maxwell
 
+menu_ask_maxwell_counter:
+  if (>= $data.counter 3):
+    jump end_maxwell_questions
+  else:
+    set data.counter (+ $data.counter 1)
+    jump menu_ask_maxwell
 
 menu_ask_maxwell:
   choice:
     "What to ask?":
     "Why did you leave me like that?":
-      talk maxwell idle "I had to do it, Jess. We're all threatened."
-      jump maxwell_leave
+      jump maxwell_question1
     "What is NCP?":
-      talk maxwell idle "The initials of National Catastrophe Prevention, one of the organizations that control this world."
-      talk maxwell idle "I was working for them, in the research department."
-      talk jessica sad "Why did you never tell me about it?"
-      talk maxwell sad "Honey, I couldn't. I signed an NDA. The NCP has to stay undercover. The world's fate depends on its existence."
-      jump maxwell_ncp
+      jump maxwell_question2
     "Where do the Watchers come from?":
-      talk maxwell idle "From a place called Tormento, a world that intersects with ours."
-      talk maxwell idle "The suffering and pain keep that place alive."
-      talk jessica sad "But why are they against us?"
-      talk maxwell idle "They're not against us, they just want to live. But they feed on our suffering, it's their fuel."
-      talk maxwell idle "Many of them managed to get to our world. You might've noticed that many people around are more bitter than normally."
-      talk maxwell idle "The Watchers are already attacking."
+      jump maxwell_question3
     "Why are they called Watchers?":
-      talk maxwell idle "That's how our ancestors called them. These creatures have always been around, watching us closely, but we could never see them."
-      talk maxwell idle "That's why they're called Watchers."
-      talk jessica sad "Nobody ever saw them?"
-      talk maxwell idle "See the Watchers, that's something very few people could do. And the ones who managed to, paid an unimaginable price."
-      talk maxwell idle "Only those who have experiences the darkest human emotions have been able to see them."
-      talk maxwell angry "They say their gaze is so intense, so disturbing that it gets to the bottom of your soul and tears it apart."
-      talk maxwell sad "The unfortunate ones who have locked eyes with a Watcher, they're never the same again."
+      jump maxwell_question4
 
 maxwell_question1:
   talk maxwell idle "I had to do it, Jess. We're all threatened."
   jump maxwell_leave
+
+end_maxwell_questions:
+  "Your keep talking to Max for a long time, trying to understand everything, but it's difficult. You are overwhelmed by emotions, they have exhausted you. You need time to process everything and still don't know how to react."
+  talk maxwell idle "Jess, I need to rest. It's been hell of a day."
+  talk maxwell idle "Stay here with me, going home can be dangerous. If they see you, they can follow you here."
+  "Maxwell points at a bed in the corner of the room."
+  talk maxwell happy "It's not a 5-star hotel, but here you'll be safe and sound. And warm."
+  "You get in bed, feeling how the exhaustion drags you into a deep sleep."
+  set_screen hideaway 0 fade 2000
+  "In the silence of early morning, the sound of Max unzipping a backpack wakes you up unexpectedly."
+  "The tension and quickness of his movements shows that he's in a hurry."
+  talk jessica sad "What are you doing, Max?"
+  talk maxwell angry "I gotta go, you stay here."
+  talk jessica sad "Where are you going?"
+  talk maxwell angry "To the NCP."
+  talk jessica scary "The NCP? Are you nuts? They're searching for you, it's straight up a suicide!"
+  talk maxwell angry "I don't have any other option. I need to act now, there's no time."
+  talk jessica scary "But why? What's going on?"
+  talk maxwell angry "I don't have time for explanations!"
+  "Angry at Maxwell for his response and the lack of trust, you get up and head towards him."
+  talk jessica scream "No, no and no! You're not going to disappear again like this. You said you'd be honest with me. So explain everything!"
+  "Maxwell takes a deep breath and starts explaining the situation to you."
+  talk maxwell idle "I need to stop Amanda, today is the day."
+  talk maxwell idle "Look, I have a contact in the headquarters, an old friend, Jared. He has managed to cause a failure in the security system of the place where Portalite is kept. As a precaution, they're going to move it to another place until they restore the system."
+  choice:
+    "What to ask?":
+    "Portalite? The what now?":
+      talk maxwell scary "I didn't tell you? I thought I did... Anyway, it's a crystal that allows us to bend the space and connect different worlds. The Portalite connects our world with the Watchers' world. If I manage to steal it from Amanda, she won't be a threat anymore."
+      jump endHideaway
+    "Where are they taking it?":
+      talk maxwell scary "They'll take it to Amanda's office, but it's a place that has less security. It's my opportunity to get in there and steal it."
+      jump endHideaway
+
+endHideaway:
+  talk jessica idle "Alright, I understand it's urgent. But what if they catch you? You can't go. Maybe... I could go."
+  talk maxwell scream "Absolutely not. I won't let you take that risk. They have no mercy, Jess!"
+  talk jessica idle "You don't have to let me do anything! It's my decision, I'm going. Believe in me, like I believe in you."
+  "Maxwell hugs you impulsively. You get out of his arms, grab the backpack and start walking towards the exit."
+  talk maxwell scream "No, Jess, wait! You can't do this alone!"
+  "You quickly get out and block the door behind you with a piece of broken pipe, locking Maxwell in."
+  talk jessica angry "Max, this is not only your fight, now it's mine too. It's my turn to protect you."
+  "With the backpack on and your heart pounding, you head towards the exit, determined to face the danger that's awaiting you at the NCP headquarters."
+  set_screen metro 0 slide-top 2000
+  "You are running through the metro tunnels when you suddenly hear a distant voice."
+  talk maxwell scary "What are you trying to do?"
+  "You look down. The voice seems to be coming out of your pendant, the one Max gifted you."
+  talk jessica scary "Max? Is that you?"
+  talk maxwell sad "Yes, that's me. I installed a transmitter on your pendant, just in case."
+  talk jessica angry "Are you trying to control me?"
+  talk maxwell sad "It's just a precaution. We'll talk about it later."
+  talk maxwell idle "What are you trying to do, Jess? You don't even know where the NCP is."
+  talk jessica idle "I'll figure it out. If I could find you, I'll find the NCP for sure."
+  talk maxwell happy "You are so damn stubborn. Alright, this time you win. But please, promise me you'll be careful."
+  talk jessica idle "Believe in me."
+  talk maxwell idle "Yeah... sure. The NCP headquarters is hidden in Central Tecnoplex."
+  talk jessica scary "That's right in the center of the city. Doesn't look like a good place for a secret organization."
+  talk maxwell idle "Exactly. Nobody expects it to be in plain sight."
+  talk maxwell idle "When you get in there, you'll need to find Jared, he will help you. Jared is a very good engineer, he can give you things that will help you. But you'll need to pay for the materials to not create any suspicions."
+  talk maxwell idle "There's money in the backpack.<br><br><span style='color: rgb(215, 121, 9)'> +20 $ </span>"
+  add_stat money +20
+  talk jessica happy "Great! You thought about everything, huh."
+  "You get out of the metro and head towards Tecnoplex, a huge technological complex in the middle of the city."
+  jump startTecnoplex
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+maxwell_question1:
+  talk maxwell idle "I had to do it, Jess. We're all threatened."
+  jump maxwell_leave
+
+
+maxwell_question2:
+  talk maxwell idle "The initials of National Catastrophe Prevention, one of the organizations that control this world."
+  talk maxwell idle "I was working for them, in the research department."
+  talk jessica sad "Why did you never tell me about it?"
+  talk maxwell sad "Honey, I couldn't. I signed an NDA. The NCP has to stay undercover. The world's fate depends on its existence."
+  jump maxwell_ncp
+
+maxwell_question3:
+  talk maxwell idle "From a place called Tormento, a world that intersects with ours."
+  talk maxwell idle "The suffering and pain keep that place alive."
+  talk jessica sad "But why are they against us?"
+  talk maxwell idle "They're not against us, they just want to live. But they feed on our suffering, it's their fuel."
+  talk maxwell idle "Many of them managed to get to our world. You might've noticed that many people around are more bitter than normally."
+  talk maxwell idle "The Watchers are already attacking."
+  jump menu_ask_maxwell_counter
+
+maxwell_question4:
+  talk maxwell idle "That's how our ancestors called them. These creatures have always been around, watching us closely, but we could never see them."
+  talk maxwell idle "That's why they're called Watchers."
+  talk jessica sad "Nobody ever saw them?"
+  talk maxwell idle "See the Watchers, that's something very few people could do. And the ones who managed to, paid an unimaginable price."
+  talk maxwell idle "Only those who have experiences the darkest human emotions have been able to see them."
+  talk maxwell angry "They say their gaze is so intense, so disturbing that it gets to the bottom of your soul and tears it apart."
+  talk maxwell sad "The unfortunate ones who have locked eyes with a Watcher, they're never the same again."
+  jump menu_ask_maxwell_counter
 
 maxwell_ncp:
   choice:
@@ -87,6 +186,7 @@ maxwell_ncp:
 maxwell_ncp_final:
   talk maxwell idle "We are not alone in the universe. We are constantly at war with other worlds."
   talk maxwell idle "The NCP is protecting us. They're the organization that faces other worlds."
+  jump menu_ask_maxwell_counter
 
 maxwell_ncp_2:
   choice:
@@ -98,7 +198,7 @@ maxwell_ncp_2:
       jump maxwell_ncp_final
 
 maxwell_leave:
- choice:
+  choice:
     "What to ask?":
     "By who?":
       talk maxwell angry "By someone very powerful."
@@ -117,6 +217,7 @@ maxwell_leave2:
   talk maxwell idle "Well, I found out about her plans and tried to make her change her mind. I don't trust her. And her people are very powerful."
   talk maxwell idle "They blackmailed me, saying they will kill all my loved ones if I don't keep my mouth shut."
   talk maxwell idle "That's why I had to stage my death..."
+  jump menu_ask_maxwell_counter
 
 
 

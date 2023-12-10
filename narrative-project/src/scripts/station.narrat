@@ -17,10 +17,9 @@ startStation:
       jump endStation
 
 skill_speed_toRunMetro:
-  "TIRADA FAKE"//Consigues evitar el metro? Cambiar TestPoints por TIRADA SPEED
-  if (== $stats.testPoints.value 0)://--------SI
+  if (roll getTaxi speed 5):
     jump escape_metro
-  else://-------------------------------------NO
+  else:
     jump no_escape_metro
 
 escape_metro:

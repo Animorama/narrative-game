@@ -24,24 +24,28 @@ getTaxi:
   talk driver idle "Hm, to the center shall be 10 credits.'?"
   choice:
     "Take taxi?":
-    "ACCEPT 👍 <span style='color: rgb(215, 121, 9)'> - X$</span>"://-------------CAMBIAR X por VALOR MONEY
+    "ACCEPT 👍 <span style='color: rgb(215, 121, 9)'> - 10$</span>":
+      add_stat money -10
       jump startTaxi
     "REJECT 👎":
       jump getWalk
 
 
 skill_speed_toGetTaxi:
-  "TIRADA FAKE"//Consigues llegar al taxi? Cambiar TestPoints por TIRADA STEALTH
-  if (roll getTaxi speed 5)://--------SI
+  if (roll getTaxi speed 5):
     jump getTaxi
-  else://-------------------------------------NO
+  else:
     jump getWalk
+
 
 homeless_choice:
   choice:
     "What do you do?":
-    "Cross the street and hide behind the bushes <span style='color: rgb(45, 136, 224)'> STEALTH > X </span>":  //----------------- CAMBIAR X por VALOR STEALTH
-      jump skill_stealth_toEvadeHomeless
+    roll evadeHomeless stealth 15 "Cross the street and hide behind the bushes":
+      success:
+        jump evadeHomeless
+      failure:
+        jump notEvadeHomeless
     "Walk by pretending not to see him":
       "You decide to walk right in front of him, without even looking."
       jump detected_by_homeless
@@ -53,22 +57,13 @@ homeless_choice:
 detected_by_homeless:
   "However, the homeless guy notices your presence. Suddenly, he gets up and walks towards you in a threatening manner, shouting something..."
   talk homeless scream "Hey! The man with the red glasses is watching you!"
-  "Frightened by his screams and erratic behaviour, you start running. Your heart is racing as you try to get away as quickly as possible. You still hear him screaming, but you're focused on escaping, remembering the streets and shortcuts of the district.<br><br><span style='color: rgb(234, 95, 95)'> SPEED > X </span>"
-//----------------- CAMBIAR X por VALOR SPEED
+  "Frightened by his screams and erratic behaviour, you start running. Your heart is racing as you try to get away as quickly as possible. You still hear him screaming, but you're focused on escaping, remembering the streets and shortcuts of the district."
   jump skill_speed_toEvadeHomeless
-
-skill_stealth_toEvadeHomeless:
-  "TIRADA FAKE"//Consigues esquivar al vagabundo? Cambiar TestPoints por TIRADA STEALTH
-  if (== $stats.testPoints.value 0)://--------SI
-    jump evadeHomeless
-  else://-------------------------------------NO
-    jump noEvadeHomeless
 
 evadeHomeless:
   "You manage to avoid the homeless man by moving very discreetly. Your stealth skills are very impressive. Maybe it's thanks to  those shoes you put on in the morning..."
-  "The adrenaline and some kind of joy after completing the mission slightly increase your self-esteem and cheerfulness.<br><br><span style='color: rgb(102, 234, 95)'> + X JOVIALTY</span>"
-  //----------------- CAMBIAR X por VALOR JOVIALTY
-  //----------------- ADD JOVIALTY
+  "The adrenaline and some kind of joy after completing the mission slightly increase your self-esteem and cheerfulness.<br><br><span style='color: rgb(102, 234, 95)'> + 1 JOVIALITY</span>"
+  add_level joviality 1
   "When you're already far away, the man stands up and starts shouting, while pointing at you."
   talk homeless scream "The man with the red glasses is watching you!"
   "You keep walking, trying to ignore the man. However, his words still sound in your head. You are asking yourself who was he talking about..."
@@ -83,17 +78,15 @@ notEvadeHomeless:
   jump detected_by_homeless
 
 skill_speed_toEvadeHomeless:
-  "TIRADA FAKE"//Consigues escapar del vagabundo? Cambiar TestPoints por TIRADA SPEED
-  if (== $stats.testPoints.value 0)://--------SI
+  if (roll evadeHom speed 10):
     jump escapeHomeless
-  else://-------------------------------------NO
+  else:
     jump noEscapeHomeless
 
 escapeHomeless:
   "Back in the day you were a very good athlete, outstanding in your speed and agility. These skills help you move very quickly through urban streets, to the point that you outrun the homeless man."
-  "The adrenaline and joy of achieving it slightly boost your self-esteem and joviality.<br><br><span style='color: rgb(102, 234, 95)'> + X JOVIALTY</span>"
-  //----------------- CAMBIAR X por VALOR JOVIALTY
-  //----------------- ADD JOVIALTY
+  "The adrenaline and joy of achieving it slightly boost your self-esteem and joviality.<br><br><span style='color: rgb(102, 234, 95)'> + 1 JOVIALTY</span>"
+  add_level joviality 1
   jump evadeHomeless2
 
 noEscapeHomeless:
@@ -125,8 +118,7 @@ calmHomeless:
   jump calmHomeless2
 
 calmHomeless2:
-  "You try to come closer to him, speaking softly and trying to calm him down. <br><br><span style='color: rgb(102, 234, 95)'> JOVIALTY > X </span>"
-//----------------- CAMBIAR X por VALOR SPEED
+  "You try to come closer to him, speaking softly and trying to calm him down."
   jump skill_jovialty_toCalmHomeless
 
 calmHomelessv2:
@@ -139,10 +131,9 @@ calmHomelessv2:
       jump calmHomeless2
 
 skill_jovialty_toCalmHomeless:
-  "TIRADA FAKE"//Consigues calmar al vagabundo? Cambiar TestPoints por TIRADA JOVIALTY
-  if (== $stats.testPoints.value 0)://--------SI
+  if (roll calm_h joviality 6):
     jump homelessCalmsDown
-  else://-------------------------------------NO
+  else:
     jump homelessExplode
 
 homelessCalmsDown:
@@ -162,8 +153,8 @@ homelessCalmsDown_mid:
   talk homeless idle "I used to love painting... But this was a long time ago."
   talk jessica happy "Painting is a beautiful for of self expression. Maybe you could try and do it again. Sometimes doing something we love can give us peace."
   talk homeless idle "Maybe you're right... But I don't have any money..."
-  talk jessica happy "Here, take this. <br><br><span style='color: rgb(215, 121, 9)'> - X MONEY </span>" //----------------- CAMBIAR X por VALOR MONEY
-  //----------------- REMOVE MONEY(+X)
+  talk jessica happy "Here, take this. <br><br><span style='color: rgb(215, 121, 9)'> - 3 $ </span>"
+  add_stat money -3
   jump homelessCalmsDown2
 
 homelessCalmsDown2:
@@ -213,8 +204,8 @@ homelessExplode:
   talk jessica sad "But... I just wanted to..."
   talk homeless scream "Give me money! Or I won't tell you what I know! It's very important for you!"
   "You fear that the situation might get worse, so you decide to give up. You reach into your bag and give the man money."
-  talk jessica sad "Here you go. Please, calm down.<br><br><span style='color: rgb(215, 121, 9)'> - X MONEY </span>" //----------------- CAMBIAR X por VALOR MONEY
-  //----------------- REMOVE MONEY(+X)
+  talk jessica sad "Here you go. Please, calm down.<br><br><span style='color: rgb(215, 121, 9)'> - 10 $ </span>"
+  add_stat money -10
   "The homeless man quickly takes the money. His gaze wanders around, filled with greedy glow."
   talk homeless idle "Yeees, yes.. The man... he always watches you when you go to the shop."
   talk jessica sad "Man? What man?"
@@ -224,12 +215,12 @@ homelessExplode:
   talk homeless idle "Maybe..."
   "After sharing his warning, the man slowly begins to back off. His gaze, so intense and direct a minute ago, now wanders aimlessly, covered with fog of his own thoughts."
   choice:
-    "Let him leave??":
-    "(YES)👍":
+    "Let him leave?":
+    "(NO)👎":
       talk jessica idle "Wait, can you tell me more about this man?"
       "The homeless man keeps walking away without answering. Despite the increasing distance, you hear him murmuring something inaudible. Maybe some of his crazy thoughts, or maybe some valuable information..."
       jump endStreet
-    "(NO)👎":
+    "(YES)👍":
       "His figure fades into the darkness of the street, leaving you alone with the new information."
       jump endStreet
 

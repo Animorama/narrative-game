@@ -1,0 +1,122 @@
+startNCP:
+  set_screen entrance_ncp 0 slide-top 2000
+  "There are two security people watching the entrance."
+  choice:
+    "What do you do?":
+    "(Talk to the security)":
+      jump talk_to_guards
+    "(Look for another entrance)":
+      talk maxwell idle "This is a very protected place, but I'm pretty sure there must be another way in."
+      "Exploring the surroundings, you find a window that seems unprotected, although breaking it could be risky."
+      jump window
+
+talk_to_guards:
+  talk jessica idle "Max, I'll talk to them."
+  talk maxwell idle "Alright, but be careful. Remember not to mention anything about NCP. You are just a journalist, you need to respond very carefully."
+  "You approach them with confidence, mentally preparing for the conversation."
+  talk guard idle "Hello there. This area is restricted. What are you looking for?"
+  choice:
+    "What to say?":
+    "Hi! I'm here for a press meeting with an executive. Here's my accreditation.":
+      talk guard idle "We don't have your visit scheduled, but you accreditation looks fine. Who are you meeting up with?"
+      choice:
+        "What to say?":
+        "Unfortunately, this is confidential for security reasons.":
+          talk guard idle "Alright. Your accreditation looks legit and shows up in the system. But why wasn't your visit scheduled?"
+          choice:
+            "What to say?":
+            "It must be an error. You can check with reception to verify my visit.":
+              "The guards look at each other, assessing your answers. Finally, they nod and allow you to enter the lobby of the headquarters."
+              jump enterNCP
+            "Well, you probably know how Amanda is, always changing her plans at the last moment.":
+              jump guard_angry
+        "I am meeting up with Amanda. Where can I find her?":
+          jump guard_angry
+    "I am here to talk about the Watchers. I heard this place is does researches on them.":
+      talk guard idle "The Watchers? How do you know about them?"
+      choice:
+        "What to say?":
+        "I heard they were related to NCP and Amanda. Is it true?"
+          jump guard_angry
+        "I'm sorry, I think I'm in a wrong place. I'm just interested in technology."
+          "Exploring the surroundings, you find a window that seems unprotected, although breaking it could be risky."
+            if (roll evadeHom stealth 12):
+            jump guards_unnoticed
+            else:
+            jump guard_catch_you
+
+window:
+  choice:
+    "What do you do??":
+    "(Talk to the security)":
+      jump talk_to_guards
+    roll testThiing stealth 12 "(Break the window)":
+      success:
+        jump guards_unnoticed
+      failure:
+        jump guard_catch_you
+
+guards_unnoticed:
+  "You apply a bit of pressure to the corned of the window, causing a silent but effective fracture. You manage to get into the lobby of the NCP."
+  jump enterNCP
+
+guard_angry:
+  talk guard idle "How do you know about Amanda? You know too much for a journalist. Come with me."
+  "You realize that the situation is out of your control. You decide to run."
+  jump escape_from_guards_entrance
+
+guard_catch_you:
+  "The glass breaks with a very loud noise, the guards are alerted and notice you."
+  talk guard scream "Hey! Who's there?!"
+  jump escape_from_guards_entrance
+
+
+escape_from_guards_entrance:
+  "With adrenaline rushing through your veins, you start running, looking for a place to hide or a way to escape."
+  talk maxwell scream "Shit... Run, Jess, run!"
+  if (roll evadeHom speed 8):
+    jump you_escape_guards_entrance
+  else:
+    jump you_not_escape_guards_entrance
+
+you_escape_guards_entrance:
+  "As you're running, you notice a group of workers entering the building through a service entrance. You quickly make up a plan."
+  "You approach the group, trying to blend in and look like one of them. Taking advantage of the confusion, you slip among the workers, managing to go unnoticed."
+  "You enter the building and get to the lobby."
+  jump enterNCP
+
+you_not_escape_guards_entrance:
+  "You get caught. The guards are holding you tightly, ignoring all your protests. They drag you through the corridors on the building until you reach an isolated area, where they lock you up in a small room that looks like a dungeon."
+  jump startDungeon
+
+enterNCP:
+  set_screen ncp 0 slide-top 2000
+  "Following the instructions Max was giving you whispering through the pendant, you sneak into the labyrinth of corridors of the NCP."
+  talk maxwell idle "Jess, be very careful. There can be security patrols in these corridors."
+  talk jessica angry "Roger that."
+  "Soon you get to a narrow corridor with an elevator at the end, which leads to Amanda's office."
+  talk jessica idle "I'm near the elevator."
+  talk maxwell happy "Nice! You're almost there."
+  "As you get closer to the elevator, the doors suddenly open and several guards get out, walking in your direction. Your heart starts racing when you realize that you're almost trapped."
+  talk jessica sad "Max, I've got company..."
+  choice:
+    "What do you do??":
+    "(Keep walking)":
+      talk maxwell angry "Stay calm and keep walking. If they see you run, they will suspect something. Act as if you belonged here."
+      "You confidently walk towards the guards, trying to look secure. The guards briefly look at you, but your confidence seems to convince them. You get to the elevator."
+      talk jessica happy "It worked!"
+      talk maxwell happy "Good job, Jess. Now go to Amanda's office."
+      jump endNCP
+    roll testThiing speed 10 "(Run)":
+      success:
+        "You turn around and start running away from the guards. They quickly start following you."
+        "To you surprise, you manage to run away from the guards. You exit through a door that leads to the emergency stairs."
+        jump endNCP
+      failure:
+        "You get caught. The guards are holding you tightly, ignoring all your protests. They drag you through the corridors on the building until you reach an isolated area, where they lock you up in a small room that looks like a dungeon."
+        jump startDungeon
+
+  
+endNCP:
+  "You finally get to Amanda's office. It's time for the most important part of the mission."
+  jump startOffice

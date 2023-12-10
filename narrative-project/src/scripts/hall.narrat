@@ -16,16 +16,16 @@ enterHall:
 debt:
   choice:
     "Forgive the debt?":
-    "(YES)👍 <span style='color: rgb(102, 234, 95)'> + X JOVIALTY</span>"://-------------CAMBIAR X por VALOR JOVIALTY
+    "(YES)👍 <span style='color: rgb(102, 234, 95)'> + 1 JOVIALITY</span>":
       talk jessica happy "Chris, the most important thing now is your health. Don't worry about the money."
       "For you, this act of empathy and understanding is a source of professional fulfilment and positive feelings."
-      //----------------- ADD JOVIALTY(+X)
+      add_level joviality 1
       jump bye_chris
-    "(NO)👎 <span style='color: rgb(215, 121, 9)'> + X $</span>"://-------------CAMBIAR X por VALOR MONEY
+    "(NO)👎 <span style='color: rgb(215, 121, 9)'> + 20 $</span>":
       talk jessica idle "Well, I understand you and I appreciate your honesty. But I'm not going through a good time either and I'm very sorry, but I'll have to ask you to pay off your debt."
       "After you insisting on paying, you can see the disappointment on Chris' face, but he accepts your request with some frustration."
       talk chris idle "<i>*Tone of resignation*</i> Of course, its only fair..."
-      //----------------- ADD MONEY(+X)
+      add_stat money 20
       jump thanks_chris
 
 thanks_chris:
