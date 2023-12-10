@@ -32,7 +32,7 @@ getTaxi:
 
 skill_speed_toGetTaxi:
   "TIRADA FAKE"//Consigues llegar al taxi? Cambiar TestPoints por TIRADA STEALTH
-  if (== $stats.testPoints.value 0)://--------SI
+  if (roll getTaxi speed 5)://--------SI
     jump getTaxi
   else://-------------------------------------NO
     jump getWalk

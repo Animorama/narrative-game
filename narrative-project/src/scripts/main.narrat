@@ -81,15 +81,18 @@ footwear:
   "You feel overwhelmed by the sadness and mystery surrounding the situation you're in.<br><br>You head to the closet and carefully choose your outfit for the day. It's time to decide on footwear. You take a look at the three options in front of you:"
   choice:
     "Choose footwear:":
-    "JUMP BOOTS 👢 <span style='color: rgb(45, 136, 224)'> + X STEALTH</span>"://-------------CAMBIAR X por VALOR STEALTH
+    "JUMP BOOTS 👢 <span style='color: rgb(45, 136, 224)'> + 1 STEALTH</span>"://-------------CAMBIAR X por VALOR STEALTH
+      add_level stealth 1
       //----------------- ADD STEALTH
       "You opt for jump boots. You know that they will protect you from the morning cold and provide you some discretion thanks to their soft step. You think about how this stealth ability could help you move without attracting attention."
       jump home_out
-    "SNEAKERS 👟 <span style='color: rgb(234, 95, 95)'> + X SPEED</span>"://-------------CAMBIAR X por VALOR SPEED
+    "SNEAKERS 👟 <span style='color: rgb(234, 95, 95)'> + 1 SPEED</span>"://-------------CAMBIAR X por VALOR SPEED
+      add_level speed 1
       //----------------- ADD SPEED
       "You decide to put on your sneakers. Their comfort gives you the energy and agility you need to face the day."
       jump home_out
-    "HEELS 👠 <span style='color: rgb(102, 234, 95)'> + X JOVIALTY</span>"://-------------CAMBIAR X por VALOR JOVIALTY
+    "HEELS 👠 <span style='color: rgb(102, 234, 95)'> + 1 JOVIALITY</span>"://-------------CAMBIAR X por VALOR JOVIALTY
+      add_level joviality 1
       //----------------- ADD JOVIALTY
       "You choose to wear heels. Despite the pain you feel, you decide that a little joy and feeling fabulous might be what you need. Not only do they improve your mood, but they could also positively influence the people you come across."
       jump home_out

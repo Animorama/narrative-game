@@ -102,6 +102,12 @@ calm_karen:
       jump bribe_karen
     "(Calm her) <span style='color: rgb(102, 234, 95)'> JOVIALTY > X </span>"://-------------CAMBIAR X por VALOR JOVIALTY
       jump skill_jovialty_toCalmKaren
+    //ACTIVE SKILLCHECK SYNTAX
+    // roll testThiing joviality 8 "(Calm her) <span style='color: rgb(102, 234, 95)'> JOVIALTY > X </span>"://-------------CAMBIAR X por VALOR JOVIALTY
+    //   success:
+    //     jump skill_jovialty_toCalmKaren
+    //   failure:
+    //     jump denyBribe_karen
 
 bribe_karen:
   choice:
@@ -135,7 +141,7 @@ acceptBribe_karen:
 
 skill_jovialty_toCalmKaren:
   "TIRADA FAKE"//Consigues calmar a karen? Cambiar TestPoints por TIRADA JOVIALTY
-  if (== $stats.testPoints.value 0)://--------SI
+  if (roll calmKaren joviality 6)://--------SI
     jump karen_calms_down
   else://-------------------------------------NO
     jump karen_gets_mad

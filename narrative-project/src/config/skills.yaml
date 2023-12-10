@@ -9,8 +9,8 @@ skills:
     description: Allows you to move swiftly and efficiently, making you a formidable force in any race or pursuit.
     icon: img/skills/speed.png
     startingLevel: 2
-  jovialty:
-    name: Jovialty
+  joviality:
+    name: Joviality
     description: The art of engaging with people positively and spreading good vibes, creating an atmosphere of joy and positivity wherever you go.
     icon: img/skills/jovialty.png
     startingLevel: 0
