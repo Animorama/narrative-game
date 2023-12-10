@@ -32,7 +32,7 @@ talk_to_guards:
               jump guard_angry
         "I am meeting up with Amanda. Where can I find her?":
           jump guard_angry
-    "I am here to talk about the Watchers. I heard this place is does researches on them.":
+    "I am here to talk about the Watchers. I heard this place does research on them.":
       talk guard idle "The Watchers? How do you know about them?"
       choice:
         "What to say?":
@@ -107,7 +107,7 @@ enterNCP:
       talk jessica happy "It worked!"
       talk maxwell happy "Good job, Jess. Now go to Amanda's office."
       jump endNCP
-    roll testThiing speed 10 "(Run)":
+    roll escapeGuards speed 12 "(Run)":
       success:
         "You turn around and start running away from the guards. They quickly start following you."
         "To you surprise, you manage to run away from the guards. You exit through a door that leads to the emergency stairs."
