@@ -10,7 +10,7 @@ startTecnoplex:
   "Spending such a big amount of money to just get into Tecnoplex could bring future troubles, you could need this money for other things. However, it's the easiest way to get in."
   choice:
     "What do you do?":
-    "(PAY) <span style='color: rgb(215, 121, 9)'> -15 $ </span>":
+    "(PAY) <span style='color: rgb(215, 121, 9)'> -15 $ </span>" if (>= $stats.money.value 15):
       add_stat money -15
       jump enterTecnoplex
     roll finesseIn joviality 8 "(FINESSE YOUR WAY IN)":
@@ -58,19 +58,19 @@ enterTecnoplex:
   talk jared idle "Alright, take a look at those."
   choice:
     "What to buy?":
-    "EXOSKELETON 🦴 <br><span style='color: rgb(234, 95, 95)'> + 2 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 5 $</span>":
+    "EXOSKELETON 🦴 <br><span style='color: rgb(234, 95, 95)'> + 2 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 5 $</span>" if (>= $stats.money.value 5):
       add_stat money -5
       add_level speed 2
       jump endTecnoplex
-    "CAMOUFLAGE 🏴 <br><span style='color: rgb(45, 136, 224)'> + 2 STEALTH</span><br><span style='color: rgb(215, 121, 9)'> - 7 $</span>":
+    "CAMOUFLAGE 🏴 <br><span style='color: rgb(45, 136, 224)'> + 2 STEALTH</span><br><span style='color: rgb(215, 121, 9)'> - 7 $</span>" if (>= $stats.money.value 7):
       add_stat money -7
       add_level stealth 2
       jump endTecnoplex
-    "PHEROMONE SPRAY 💦<br><span style='color: rgb(102, 234, 95)'> + 2 JOVIALTY</span><br><span style='color: rgb(215, 121, 9)'> - 7 $</span>":
+    "PHEROMONE SPRAY 💦<br><span style='color: rgb(102, 234, 95)'> + 2 JOVIALTY</span><br><span style='color: rgb(215, 121, 9)'> - 7 $</span>" if (>= $stats.money.value 7):
       add_stat money -7
       add_level joviality 2
       jump endTecnoplex
-    "RETRACTABLE WHEELS 🚗<br><span style='color: rgb(234, 95, 95)'> + 3 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 8 $</span>":
+    "RETRACTABLE WHEELS 🚗<br><span style='color: rgb(234, 95, 95)'> + 3 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 8 $</span>" if (>= $stats.money.value 8):
       add_stat money -8
       add_level speed 3
       jump endTecnoplex
