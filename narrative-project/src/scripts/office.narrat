@@ -1,0 +1,98 @@
+startOffice:
+  set_screen office 0 slide-top 2000
+  "As you approach the door to Amanda's office, you start getting even more nervous, but at the same time you feel very determined. You use the accreditation Jared gave you to open the door. It works. The door opens, you take a deep breath and enter."
+  "The office is very spacious and looks luxurious, it has a large window offering a stunning view of the city. In the center of the room you see a futuristic machine, powered by a glowing crystal: the Portalite."
+  "Suddenly, a strong hit makes the room shake, and a huge portal opens inside the machine. Through it you can see something that looks like another world. A panorama of colors and shapes that defy all the logic and are impossible to understand. The power emanating from the portal is overwhelming, it hits you like a train and you start crying."
+  "You see a group of people in futuristic suits get out of the portal. You quickly hide under a large piece of furniture. The leader removes their helmet and you see their face. It's a woman in her 50's, with short brown hair and a nose ring. It must be Amanda."
+  talk amanda idle "Report. What's the current status of the Tormento district?"
+  talk major "The district is completely under our control. The Watchers have retreated. Our technology and forces are superior, their resistance is quickly decreasing."
+  talk amanda idle "Excellent. Every victory brings us closer to our final goal."
+  talk sergeant idle "After all these years..."
+  talk commander idle "With the power of Portalite you are unstoppable, Amanda. The sovereignty of the world is within your reach."
+  talk sergeant idle "Commander, we have detected a sudden increment in the resistance of the Watchers. They seem to be grouping up for a significant counterattack!"
+  talk amanda angry "I expected this. The Watchers are very resilient, but it doesn't really matter. With every world we conquer, our force grows."
+  talk amanda idle "Any advances on Portalite?"
+  talk commander "The energy extraction and amplification process are working beyond our expectations. We have detected two new worlds."
+  talk amanda scary "Great, send a squad to investigate those lands. Mid-range soldiers. Cannon fodder."
+  talk commander "At your orders!"
+  talk amanda evil "Seems like everything is going according to plan."
+  talk amanda idle "Still... no loose ends should be left. Do you know anything about our fallen angel?"
+  talk major "Not yet. But it is clear that Maxwell is still alive. The corpse they have analysed is not his. He staged his death."
+  "You're starting to understand the level of threat that Amanda and her team pose."
+  talk maxwell idle "Jess, can you hear me?"
+  talk jessica idle "Yes, I'm right in front of Portalite."
+  talk maxwell angry "I know, I can see you."
+  talk jessica scary "What? How?"
+  talk maxwell angry "I'm here too, outside. Listen, when you give me a signal, I'll break the window. You'll need to act fast, take Portalite and jump."
+  talk jessica scary "Are you nuts?! I'm at a 5th floor!"
+  talk maxwell idle "Calm down. Jared is down there with a vehicle to escape. He prepared a safety net for you to fall on."
+  talk maxwell angry "I know it's dangerous, and I'm sorry I have to ask you to do it. But there's no other way, we can't miss this opportunity."
+  "You know how important this mission is. Everything depends on you..."
+  talk maxwell idle "When you give me the signal, I'll break the glass. Whenever you say."
+  "Amanda places Portalite on a table, while she's talking to her agents."
+  talk amanda angry "Make sure Portalite is protected. We can not have any errors."
+  "It seems like a good moment to act, but some soldiers are too close..."
+  choice:
+    "What to do?":
+    "(ASSAULT🔥)":
+      jump asalt_bad_1
+    "(WAIT)":
+      jump stayhere_1
+      
+stayhere_1:
+  "One of the soldiers takes Portalite to have a closer look at it."
+  talk major idle "Should we start the next phase of the experiment?"
+  talk amanda happy "Soon. First we have to analyze the latest data from Tormento."
+  choice:
+    "What to do?":
+    "(ASSAULT🔥)":
+      jump asalt_bad_2
+    "(WAIT)":
+      talk amanda scream "Prepare Portalite for the transfer of energy. I want to see results before dawn."
+      "Portalite is placed on a special pedestal. Amanda and her team step away for a moment to check some monitors."
+      choice:
+        "What to do?":
+        "(ASSAULT🔥)":
+           jump win_
+        "(WAIT)":
+           talk amanda scream "Prepare Portalite for the transfer of energy. I want to see results before dawn."
+           "Po"
+
+asalt_bad_1:
+  talk maxwell scream "Not now! Wait, It's too dargerous"
+  jump stayhere_1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  major:
+    sprites:
+      idle: captain1.png
+    style:
+      color: red
+    name: Major general
+
+  sergeant:
+    sprites:
+      idle: captain2.png
+    style:
+      color: red
+    name: Sergeant
+
+  commander:
+    sprites:
+      idle: captain3.png
+    style:
+      color: red
+    name: Sub-Commander

@@ -10,6 +10,7 @@ import hideaway from "./hideaway.narrat";
 import tecnoplex from "./tecnoplex.narrat";
 import ncp from "./ncp.narrat";
 import dungeon from "./dungeon.narrat";
+import office from "./office.narrat";
 
 export default [
   main,
@@ -24,4 +25,5 @@ export default [
   tecnoplex,
   ncp,
   dungeon,
+  office,
 ];
