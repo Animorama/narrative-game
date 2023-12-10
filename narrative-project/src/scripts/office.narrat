@@ -46,22 +46,241 @@ stayhere_1:
   choice:
     "What to do?":
     "(ASSAULT🔥)":
-      jump asalt_bad_2
+      jump lastOportinity
     "(WAIT)":
       talk amanda scream "Prepare Portalite for the transfer of energy. I want to see results before dawn."
       "Portalite is placed on a special pedestal. Amanda and her team step away for a moment to check some monitors."
       choice:
         "What to do?":
         "(ASSAULT🔥)":
-           jump win_
+           jump win_assault
         "(WAIT)":
-           talk amanda scream "Prepare Portalite for the transfer of energy. I want to see results before dawn."
-           "Po"
+           jump lastOportinity
 
 asalt_bad_1:
   talk maxwell scream "Not now! Wait, It's too dargerous"
   jump stayhere_1
 
+win_assault:
+  talk jessica scream "NOW!"
+  "The window explodes, creating a massive distraction."
+  "You rush forward with determination, grabbing Portalite. The surprise and chaos delay the reaction of Amanda and her minions, giving you those precious seconds you need."
+  jump endOffice
+
+lastOportinity:
+  "It was too early, you get caught. Amanda's soldiers quickly trap you, your brain is trying to think of a solution."
+  choice:
+        "What to do?":
+        "(CONVINCE)":
+           jump win_assault
+           "You try talking to Amanda, try convincing her not to hurt you. But this woman has no mercy..."
+           jump gameOver
+        "(JUMP🔥)":
+           "With an unbelievable effort you manage to get rid of the soldiers, you grab Portalite and run towards the window."
+           talk jessica scream "NOW!"
+           jump endOffice
+
+endOffice:
+  "Jumping through the broken window, you feel the adrenaline rush through your veins. You land on the net, quickly get up and run towards the transport."
+  jump startOutsideNCP
+
+
+
+startOutsideNCP:
+  set_screen back 0 slide-top 2000
+  "After you got into the vehicle, Jared took off immediately. Everything was going well..."
+  "Unexpectedly, a missile hits Jared's vehicle, causing a deafening explosion and engulfing everything in flames."
+  "The horror of the situation takes over as you realize that Jared has died."
+  talk jessica scary "Jared! No, No! It can't be..."
+  "Paralyzed by shock and sadness, you realize that you are surrounded. Soldiers emerge from nowhere, weapons in hand, aiming at you."
+  "From above, Amanda and her henchmen descend with jetpacks, landing on the ground with cold, calculating military efficiency."
+  talk amanda idle "This jewel is not for you, girl... It doesn't suit you. Come on, hand it over. Don't make this harder."
+  talk jessica sacry "No! I can't do it."
+  talk amanda happy "Are you sure? I'll shoot, don't doubt it. You know, you won't be the first girl I kill."
+  "Before you can react, Maxwell appears out of nowhere."
+  talk maxwell scream "<i>*shouting*</i> Nobody move! Don't do it!"
+  talk amanda evil "Wow, look who's here. Our fallen angel."
+  talk maxwell angry "Amanda..."
+  talk amanda evil "You look good Maxwell. Death suits you pretty well..."
+  talk maxwell angry "Please, don't hurt her... You already killed my friend, leave Jess alone."
+  talk amanda happy "I see...our brave hero arrives to save the day. Do you really think you can negotiate in this situation?"
+  talk maxwell scream "Yes, I think so. Jess! You have all the control. They won't shoot you. They won't risk breaking the crystal."
+  talk amanda evil "Did you say Jess? Oh, right, it's your famous Jessica. Now it all makes sense."
+  "You look Amanda straight in the eyes."
+  talk jessica scream "I'll break the crystal without a doubt."
+  "The tension in the air is intensifies. You firmly hold Portalite, aware of the destructive power you're holding in your hands. Amanda watches the scene, calculating and cold, evaluating her options."
+  "Maxwell is slowly approaching, the soldiers are aiming at him, but he keeps threatening to destroy Portalite."
+  talk jessica scary "<i>*voice shaking*</i> Max, stop! You're risking too much."
+  talk amanda scream "You have no idea what you're doing. This crystal is more than power. It's the future."
+  talk maxwell scream "You can't control the future, Amanda."
+  talk jessica angry "Max, I'm gonna break it..."
+  talk maxwell scream "No, wait! You don't understand! We will all die. This thing has too much energy. If you break it now, everything will blow up."
+  talk jessica scream "It's the right thing to do! I can't let this power be in the wrong hands. I'm sorry, Max, but it's the only way..."
+  talk maxwell scream "Wait! There's another way, believe me!"
+  talk amanda happy "Maxwell, this girl is suffering. Let's get this over with. Haven't you done enough to her already?"
+  "Amanda's words make you worry, Maxwell's face changes, he looks at Amanda in disbelief."
+  talk maxwell scary "Amanda... Stop."
+  talk jessica angry "What's going on?"
+  talk amanda happy "Listen, you don't have to do it. The truth is that you don't matter here. Your only mistake was making a deal with the devil."
+  "Amanda points at Maxwell with a threatening smile."
+  talk amanda evil "You bonded with our fallen angel."
+  talk jessica angry "What do you mean?"
+  talk amanda evil "Oh, you don't know anything..."
+  talk maxwell sad "Don't listen to her, Jess."
+  talk amanda evil "Where do you think the energy in our weapons comes from? Of the NCP's big technology?"
+  talk amanda evil "We feed on the pain. Just like the Watchers. We use your resources."
+  "Maxwell screams at Amanda hysterically."
+  talk maxwell scream "Shut up! Shut your mouth!!"
+  talk amanda idle "We discovered that pain is the best energy, that's how it is. We have to generate pain in people. For the future, for us. We torture humans... I won't deny it, we don't have a clear conscience."
+  talk amanda idle "But hey... The brightest stars emerge in the deepest darkness."
+  talk amanda evil "Isn't that right, little star?"
+  "Amanda comes close to you, looking you straight in the eyes. It feels like she could see through your soul."
+  "You are terrified... You don't understand anything of what is happening..."
+  talk jessica sad "How do you know this?"
+  talk amanda happy "Sweetheart, we owe all of this to our best soldier. <i>*She points at Maxwell*</i>"
+  talk amanda scary "He is the person with the least scruples. He wanted to obtain the greatest human pain... to obtain the greatest power."
+  talk amanda evil "And that's where you step in."
+  talk jessica sad "Me? Why?"
+  "Amanda comes even closer and looks at your star-shaped pendant, the one that Maxwell gifted you. Your most valuable possession."
+  talk amanda happy "That's a pretty pendant. Do you know what it really is?"
+  "You look at her in disbelief."
+  talk amanda idle "It's a pain collector. A very practical model. It makes it easier for us to collect energy. It even enhances pain's effects."
+  talk amanda idle "This pendant has been absorbing your pain, your suffering. In order to give power to Maxwell."
+  "Amanda changes her tone, simulating false pity."
+  talk amanda happy "I'm sorry it had to be you. A happy young girl, full of happiness. Full of dreams and positive thoughts."
+  talk amanda evil "But that's why you were the perfect candidate. We had to break you. Your suffering was going to give us a lot of energy."
+  "The pain of betrayal spreads like a poison through your body, darkening beautiful memories and staining every shared moment with lie."
+  "Broken inside, you turn to Maxwell. Your eyes are filled with tears."
+  talk jessica sad "Max... Did you fake your death to make me suffer?"
+  talk maxwell sad "It was necessary, my little st..."
+  talk jessica scream " <i>*voice breaks*</i>Shut up! Don't call me that!"
+  talk maxwell sad "Jess, you don't know how sorry I am and how much I regret it..."
+  talk jessica sad "What about everything we lived together? All that love and care? It was all a lie?!"
+  talk maxwell sad "No, no! I've always loved you with all my heart! It was all real..."
+  talk amanda happy "Now that I believe."
+  talk jessica sad "What?.."
+  talk amanda idle "Of course, to make you suffer he first had to make you the happiest person in the world."
+  "Anger and pain tie up in a knot of feelings and suffocate you."
+  talk jessica sad "<i>*tearing up*</i> How could I be so blind? How could I trust you?"
+  talk maxwell idle "Jess, all of this, I did it for us. It was the only way. I needed to take Amanda down."
+  talk maxwell sad "But everything will change. All our pain will be gone and we will be happy for the rest of our lives. There will be no more suffering."
+  talk jessica sad "How can you think you'll be able to achieve something like this?!"
+  talk amanda idle "By destroying the Watchers. That's what he wants to do. Kill every one of them. Destroy a whole civilization."
+  talk maxwell scream "The Watchers are just monsters! They are the literal representation of human pain."
+  talk amanda scream "But they have a life. There are children among them. What did they do? It's not their fault they're like this. Do they deserve to die? They're just surviving, it's the nature.The weak are meat, and the strong do eat..."
+  talk maxwell scream "Destroying their world is the best option. This way there will be no more pain in ours!"
+  talk amanda scary "No, the best option is to take control of them. That's what the NCP does, control the enemy worlds. We protect humanity."
+  talk amanda happy "Jessica, you have to trust me. I know I seem like the enemy to you. But my intention is to change the world. With the power of the Watchers. With that power I will heal the pain of good people, I will impart pain to those who need it, to those who deserve it, I will forge strong souls. I will create a new world where balance reigns. And now you can help me.."
+  "A lot of doubts are swarming in your brain. You no longer know what's right and what's wrong. Your head is spinning. Anxiety is taking control over you..."
+  "Maxwell looks defeated, about to give up."
+  talk maxwell sad "Jess, don't let everything I did to you be in vain. Help us both free ourselves from this suffering, please."
+  talk amanda idle "A world without suffering doesn't sound too interesting. The pain makes us stronger."
+  "<br><br><br>The time to make the most important decision has come. The fate of the world is in your hands. What you decide in these critical seconds could lead to salvation, or ruining entire worlds."
+  choice:
+    "<br><br>  <span style='color: rgb(253, 216, 53)'><b><i>What to do with the crystal?</i></b></span>":
+    "Give it to AMANDA":
+      jump final_1
+    "Give it to MAXWELL":
+      jump final_2
+    "BREAK IT":
+      jump final_3
+
+final_1:
+  "You made up your mind. This option seems like the only right thing to do."
+  talk jessica angry "Amanda..."
+  talk maxwell scream "No, Jess, don't do it!!"
+  talk jessica angry "It's the only right thing, Max..."
+  talk amanda happy "You're right, girl. Come on, give it to me."
+  "You take a deep breath, your hands are shaking. You are trying to stay calm, but it's almost impossible in a situation like this. You approach Amanda and give her the crystal."
+  talk jessica sad "I just hope this will make the world better...And please, don't hurt Maxwell."
+  talk amanda evil "Don't worry, child."
+  "Amanda takes the crystal and turns to one of her soldiers..."
+  talk amanda idle "Take him down, now. We don't need him anymore."
+  talk jessica scary "No! Please! You promised!.."
+  "You hear a shot and see Maxwell falling to the ground."
+  talk amanda indle "We can't risk it, girl. He was a threat."
+  talk amanda scream "Hey, take her to the NCP!"
+  "Tears fill up your eyes, everything gets blurry. You scream and try to fight as the soldiers are dragging you to a truck. You receive a hit on the head, everything starts turning black. Before you pass out completely, you hear one last thing."
+  talk amanda happy "Prepare her for the experiment. I'll need to test my new power."
+  jump THEEND
+  
+
+final_2:
+  "You take a deep breath, your hands are shaking. You are trying to stay calm, but it's almost impossible in a situation like this. You whisper to the transmitter..."
+  talk jessica angry "Max, take Amanda down. At my signal."
+  talk maxwell angry "Alright. When I do it, run to my car and get in. They will be distracted and maybe we'll be able to escape."
+  talk jessica scream "Okay. 3...2...1.. Now!"
+  "You hear a shot, you see Amanda falling on the ground as you start running towards Maxwell's car. The soldiers rush to Amanda and lose their precious seconds to capture you."
+  "You manage to get to the car, as soon as you hop in, Maxwell takes off."
+  "You hear the soldiers shouting something and the bullets hitting the car, but somehow you manage to get away..."
+  set_screen back 0 hideaway 2000
+  "Maxwell drives until you're very far away from the city. He stops the car in the middle of nowhere."
+  talk maxwell idle "We'll do it here. I have all the necessary equipment."
+  talk jessica sad "Are you sure?.."
+  talk maxwell idle "Yes, Jessica. We need to do it. You are here with me, you too think it's the right choice."
+  talk jessica sad "I really hope it is..."
+  "Max gets out of the car and starts preparing everything. He takes out some kind of a projector and starts setting up the crystal in it."
+  talk maxwell idle "I've been working on this for a while. It should create a burst of energy that will destroy Tormento. Portalite will be destroyed too, it won't handle that amount of energy."
+  talk jessica idle "Alright. Do you need my help?"
+  talk maxwell idle "No, just step away and try to hide somewhere."
+  "You see something that looks like an abandoned cabin and decide to go there. Once Maxwell finishes setting up the machine, he comes to hide with you."
+  talk maxwell idle "I'll activate it from here. I don't know what will happen... but we have to try."
+  talk maxwell sad "Thank you for believing me, Jess..."
+  talk jessica sad "It was not easy to believe you, you are going to destroy an entire civilization..."
+  talk maxwell sad "I know. But I'm doing it for us, for the whole world. It will be much better without pain."
+  talk jessica sad "I just hope you're right."
+  talk maxwell happy "I love you, my little star..."
+  "Maxwell presses the button. You hear a very loud noise, as if a rocket was taking off. You cover your head and close your eyes."
+  "Even through closed eyelids you see a bright flash that lights up everything for a moment, and then a huge explosion shakes the earth."
+  "You pass out from the noise and shaking..."
+  "You come to your senses. You are laying on the ground, Maxwell is holding your head. You remember everything that happened before the explosion."
+  talk jessica idle "Is it... is it over?"
+  talk maxwell idle "It is."
+  talk jessica idle "Do you think it worked?"
+  talk maxwell idle "I don't know."
+  "You both get up from the ground. Maxwell stands right in front of you, looking you straight in the eyes. You think he's about to hug you, but..."
+  talk maxwell idle "Let's go. It's getting dark."
+  "Maxwell walks away to the car. You stay, thinking about him and trying to understand what you're feeling. If the pain and all the bad emotions are gone, you should be feeling extremely happy and excited, right?"
+  "But, apparently, you feel absolutely nothing..."
+  jump THEEND
+
+
+final_3:
+  "You inhale deeply and lift the crystal up."
+  talk maxwell scream "No, Jess, don't do it!! It will blow up everything!"
+  talk amanda scream "You don't know what you're doing!"
+  talk jessica scream "I'm doing the only right thing! I can't let any of you destroy entire worlds!"
+  talk maxwell scream "But you will die too! We all will!"
+  talk jessica angry "It's a small price to pay for lives of others!"
+  "Several soldiers start running towards you, but it's too late. With a scream you smash the crystal into the ground."
+  "A huge burst of light and energy comes out of the broken crystal,  creating a blast wave that knocks you off your feet. You hit your head and pass out."
+  "You come to your senses. You try to get up, but it's hard. Finally, you manage to get on your feet, you take a look around."
+  "There are people on the ground, some soldiers are helping each other to get up, some of them are helping Amanda. You see Maxwell approaching you."
+  talk maxwell sad "Jess, why did you do it? We could live a happy life together, with no pain at all. Everybody could be happy."
+  talk jessica idle "During my whole life I've been trying to help people. I've been trying to make them happy, get over their pain. And during the last months I've been trying to get over the pain of losing you."
+  talk maxwell sad "I'm sorry..."
+  talk jessica angry "I'm not finished."
+  talk jessica angry "This pain was unbearable, I didn't want to live. But I still tried my best. And, you know, if there's one thing I learned, is that even the most terrible pain, it's good. It changes us, it helps us grow, see things in a different way."
+  talk maxwell sad "What do you mean?"
+  talk jessica angry "Before, I used to see you as a great person, the best person in the world. I thought you wanted to help people too, do something good for the world."
+  talk maxwell scream "Of course! That's why I wanted to destroy Tormento."
+  talk jessica scream "No, Max. There are right and wrong ways of helping. Helping someone by making others suffer is not helping. The end doesn't justify the means."
+  talk maxwell sad "But..."
+  talk jessica angry "No. You made me suffer on purpose. Me, the person you theoretically love. If you are capable of doing this, you are capable of even more horrible things. I know that for sure. You wanted to destroy an entire civilization!"
+  talk maxwell sad "I wanted everyone to be happy..."
+  talk jessica angry "No. You were thinking only about yourself. You are very egocentric, I don't know how I didn't see it before."
+  talk maxwell sad "I just wanted to help. Look, Jess, if you give me a chance, I'll prove that I'm not egocentric. I love you, I really do. Please, let me make it up to you."
+  talk jessica sad "You don't love me, Max. If you loved me, you would never do what you did."
+  talk maxwell sad "Jess..."
+  talk jessica scream "Shut up. I don't want to hear any more of your excuses. We are done. I don't want to see you ever again."
+  talk maxwell sad "My little star..."
+  talk jessica idle "Don't call me that."
+  talk jessica idle "Have a nice life, Maxwell Kane."
+  "You turn around and start walking away. The pain you're feeling is even worse than when you thought you lost Maxwell."
+  "You feel like your soul is being torn apart. The betrayal of the person you loved is even worse than their death."
+  "But you know this pain will help you. You are at the lowest point and the only way is up. It will help you grow, become a better version of yourself."
+  "They say, there is no growth without pain. And now you finally understand this."
+  jump THEEND
 
 
 
@@ -76,23 +295,56 @@ asalt_bad_1:
 
 
 
-  major:
-    sprites:
-      idle: captain1.png
-    style:
-      color: red
-    name: Major general
 
-  sergeant:
-    sprites:
-      idle: captain2.png
-    style:
-      color: red
-    name: Sergeant
+  
 
-  commander:
-    sprites:
-      idle: captain3.png
-    style:
-      color: red
-    name: Sub-Commander
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

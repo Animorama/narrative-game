@@ -1,3 +1,6 @@
 gameOver:
   set_screen default 0 fade 2000
   "Game Over"
+THEEND:
+  set_screen default 0 fade 2000
+  "THE END"

@@ -39,6 +39,8 @@ screens:
     background: img/backgrounds/taxi.png
   tecnoplex:
     background: img/backgrounds/tecnoplex.png
+  back:
+    background: img/backgrounds/back.png
   shoptest:
     background: img/backgrounds/shop.png
     buttons:
