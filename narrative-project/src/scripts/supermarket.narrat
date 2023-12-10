@@ -14,24 +14,24 @@ optionsMarket:
     "What to do?":
     "ASK":
       jump askMenu
-    "BUY":
+    "BUY" if (>= $stats.money.value 3):
       jump shopMenu
 
 shopMenu:
   choice:
     "What to buy?":
-    "COFFEE ☕ <br><span style='color: rgb(234, 95, 95)'> + 1 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 3 $</span>":
+    "COFFEE ☕ <br><span style='color: rgb(234, 95, 95)'> + 1 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 3 $</span>" if (>= $stats.money.value 3):
       add_stat money -3
       add_level speed 1
       jump optionsMarket
-    "SUNGLASSES 🕶️ <br><span style='color: rgb(45, 136, 224)'> + 1 STEALTH</span><br><span style='color: rgb(215, 121, 9)'> - 4 $</span>":
+    "SUNGLASSES 🕶️ <br><span style='color: rgb(45, 136, 224)'> + 1 STEALTH</span><br><span style='color: rgb(215, 121, 9)'> - 4 $</span>" if (>= $stats.money.value 4):
       add_stat money -4
       add_level stealth 1
-    "ENERGY DRINK 🥤<br><span style='color: rgb(234, 95, 95)'> + 2 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 5 $</span>":
+    "ENERGY DRINK 🥤<br><span style='color: rgb(234, 95, 95)'> + 2 SPEED</span><br><span style='color: rgb(215, 121, 9)'> - 5 $</span>" if (>= $stats.money.value 5):
       add_stat money -5
       add_level speed 2
       jump optionsMarket
-    "VANILLA PERFUME 🧴<br><span style='color: rgb(102, 234, 95)'> + 1 JOVIALTY</span><br><span style='color: rgb(215, 121, 9)'> - 5 $</span>":
+    "VANILLA PERFUME 🧴<br><span style='color: rgb(102, 234, 95)'> + 1 JOVIALTY</span><br><span style='color: rgb(215, 121, 9)'> - 5 $</span>" if (>= $stats.money.value 5):
       add_stat money -5
       add_level joviality 1
       jump optionsMarket
@@ -103,7 +103,7 @@ calm_karen:
       talk jessica idle "Maybe we could come to an agreement..."
       "With a light blush on your cheeks, thinking of the unusual decision you're about to make, you discreetly take out a certain amount of money and show it to the assistant."
       jump bribe_karen
-    roll testThiing joviality 8 "(Calm her)":
+    roll calmKarenShop joviality 8 "(Calm her)":
       success:
         jump karen_calms_down
       failure:

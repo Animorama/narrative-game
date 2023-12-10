@@ -78,7 +78,7 @@ notEvadeHomeless:
   jump detected_by_homeless
 
 skill_speed_toEvadeHomeless:
-  if (roll evadeHom speed 12):
+  if (roll evadeHome speed 12):
     jump escapeHomeless
   else:
     jump noEscapeHomeless

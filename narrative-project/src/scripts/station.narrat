@@ -17,7 +17,7 @@ startStation:
       jump endStation
 
 skill_speed_toRunMetro:
-  if (roll getTaxi speed 5):
+  if (roll escapeMetro speed 5):
     jump escape_metro
   else:
     jump no_escape_metro

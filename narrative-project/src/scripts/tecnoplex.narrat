@@ -13,7 +13,7 @@ startTecnoplex:
     "(PAY) <span style='color: rgb(215, 121, 9)'> -15 $ </span>":
       add_stat money -15
       jump enterTecnoplex
-    roll testThiing joviality 8 "(CONVINCE)":
+    roll finesseIn joviality 8 "(FINESSE YOUR WAY IN)":
       success:
         jump convince_rece
       failure:

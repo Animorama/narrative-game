@@ -131,7 +131,6 @@ enterTaxi10_bad:
   choice:
     "Open the door and jump out?":
     "(YES)👍":
-      jump enterTaxi10_bad
       "You open the door and jump out of the car while it's still moving. You quickly get up and start running towards the city square."
       "You hear the car tired squealing and then hear approaching footsteps."
       jump skill_speed_toEscapeTaxi
@@ -140,8 +139,8 @@ enterTaxi10_bad:
       jump gameOver
 
 skill_speed_toEscapeTaxi:
-  "TIRADA FAKE"//Consigues llegar al taxi? Cambiar TestPoints por TIRADA STEALTH
-  if (== $stats.testPoints.value 0)://--------SI
+  //Consigues llegar al taxi? Cambiar TestPoints por TIRADA STEALTH
+  if (roll escapeTaxi speed 4)://--------SI
     jump manage_to_run_taxi
   else://-------------------------------------NO
     jump not_run_taxi

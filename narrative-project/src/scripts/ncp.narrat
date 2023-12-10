@@ -40,7 +40,7 @@ talk_to_guards:
           jump guard_angry
         "I'm sorry, I think I'm in a wrong place. I'm just interested in technology."
           "Exploring the surroundings, you find a window that seems unprotected, although breaking it could be risky."
-            if (roll evadeHom stealth 12):
+            if (roll breakWindow stealth 12):
             jump guards_unnoticed
             else:
             jump guard_catch_you
@@ -74,7 +74,7 @@ guard_catch_you:
 escape_from_guards_entrance:
   "With adrenaline rushing through your veins, you start running, looking for a place to hide or a way to escape."
   talk maxwell scream "Shit... Run, Jess, run!"
-  if (roll evadeHom speed 8):
+  if (roll escapeGuardsEntrance speed 8):
     jump you_escape_guards_entrance
   else:
     jump you_not_escape_guards_entrance
